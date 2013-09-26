@@ -1,0 +1,48 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{standalone}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{nomencl}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+\makeatother
+
+\begin{document}
+\begin{wrapfigure}{o}{0.4\textwidth}%
+\vspace{-40pt}
+
+\includegraphics[width=0.4\textwidth]{/home/vidma/DAS_paper/figures/problem_statement_das_service_ex}\vspace{-20pt}\caption{a data-service (simplified)}
+\end{wrapfigure}%
+
+
+\textbf{Input:} query, KWQ\nomenclature{KWQ}{keyword query\\}=$\left(kw_{1},kw_{2},..,kw_{n}\right)$
+
+\textbf{Task: }translate it into structured query
+
+\textbf{Given: }metadata
+\begin{itemize}
+\item names of entities and their attributes 
+
+\begin{itemize}
+\item (either \emph{service inputs} or their \emph{output} fields)
+\end{itemize}
+\item possible values (only for some inputs)
+\item \emph{constraints} on data-service \emph{inputs}:
+
+\begin{itemize}
+\item mandatory inputs
+\item regular expressions on values\end{itemize}
+\end{itemize}
+
+\end{document}

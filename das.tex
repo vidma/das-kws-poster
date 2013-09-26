@@ -1,0 +1,42 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{standalone}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+\makeatother
+
+\begin{document}
+\begin{itemize}
+\item uses simple structured queries 
+\item integrated access to proprietary data-sources 
+
+\begin{itemize}
+\item process the query \& send requests to services 
+\item eliminates inconsistencies in entity naming, data formats(XML, JSON)
+\item combining the results
+\end{itemize}
+\item uses lightweight service mappings
+
+\begin{itemize}
+\item minimal effort in defining services
+\item complete services structure is figured out in runtime
+\end{itemize}
+\end{itemize}
+
+\paragraph{Query language and Execution flow}
+
+The queries are formed specifying the entity the user is interested
+in (e.g. dataset, file, etc) and providing filtering criteria (e.g.
+attribute=value, attribute \emph{between} {[}v1, v2{]}). The results
+could be later 'piped' for further filtering, sorting or aggregation
+(min, max, avg, sum, count, median), e.g.: 
+
+\includegraphics[width=1\textwidth]{/home/vidma/DAS_paper/figures/DASQL_structure}
+\end{document}

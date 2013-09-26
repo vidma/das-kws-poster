@@ -1,0 +1,392 @@
+% fancytikzposter.tex, version 2.1
+% Original template created by Elena Botoeva [botoeva@inf.unibz.it], June 2012
+% 
+% This file is distributed under the Creative Commons Attribution-NonCommercial 2.0
+% Generic (CC BY-NC 2.0) license
+% http://creativecommons.org/licenses/by-nc/2.0/ 
+
+\documentclass{a0poster}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[latin9]{inputenc}
+\usepackage{fancytikzposter} 
+
+
+%%%%% --------- Change here if you want ---------- %%%%%
+%% margin for the geometry package, must be changed before using the geometry package
+%% default value is 4cm
+% \setmargin{4}
+
+%% the space between the blocks
+%% default value is 2cm
+% \setblockspacing{2}
+
+%% the height of the title stripe in block nodes, decrease it to save space
+%% default value is 3cm
+% \setblocktitleheight{3}
+
+%% the number of columns in the poster, possible values 2,3
+%% default value is 2
+% \setcolumnnumber{3}
+
+%% the space between two or more groups of authors from different institutions
+%% used in \maketitle
+% \setinstituteshift{10}
+
+%% which template to use
+%% N1 simple, standard look, with a colored background and gray boxes
+%% N2 board with nodes
+%% N3 another standard look
+%% N4 envelope-like look
+%% N5 with a wave-like head, original idea taken from
+%%%% http://fc09.deviantart.net/fs71/f/2010/322/1/1/scientific_poster_by_nabuy-d333ria.jpg
+%\usetemplate{4}
+\usetemplate{2}
+
+
+%% components of the templates
+%% (the maximal possible numbers are mentioned as the parameters)
+% \usecolortemplate{4}
+% \usebackgroundtemplate{4}
+%\usetitletemplate{2}
+%\usetitletemplate{2}
+
+%\useblocknodetemplate{4}
+% \useplainblocktemplate{4}
+% \useinnerblocktemplate{2}
+
+
+%% the height of the head drawing on top 
+%% applicable to templates N3, 4 and 5
+% \setheaddrawingheight{14}
+
+
+%% change the basic colors
+%\definecolor{myblue}{HTML}{008888} 
+%\setfirstcolor{myblue}% default 116699
+%\setsecondcolor{gray!80!}% default CCCCCC
+%\setthirdcolor{red!80!black}% default 991111
+
+%% change the more specific colors
+% \setbackgrounddarkcolor{colorone!70!black}
+% \setbackgroundlightcolor{colorone!70!}
+% \settitletextcolor{textcolor}
+% \settitlefillcolor{white}
+% \settitledrawcolor{colortwo}
+% \setblocktextcolor{textcolor}
+% \setblockfillcolor{white}
+% \setblocktitletextcolor{colorone}
+% \setblocktitlefillcolor{colortwo} %the color of the border
+% \setplainblocktextcolor{textcolor}
+% \setplainblockfillcolor{colorthree!40!}
+% \setplainblocktitletextcolor{textcolor}
+% \setplainblocktitlefillcolor{colorthree!60!}
+% \setinnerblocktextcolor{textcolor}
+% \setinnerblockfillcolor{white}
+% \setinnerblocktitletextcolor{white}
+% \setinnerblocktitlefillcolor{colorthree}
+
+
+
+
+%%% size of the document and the margins
+%% A0
+% \usepackage[margin=\margin cm, paperwidth=118.9cm, paperheight=84.1cm]{geometry} 
+\usepackage[margin=\margin cm, paperwidth=84.1cm, paperheight=118.9cm]{geometry}
+%% B1
+% \usepackage[margin=\margin cm, paperwidth=70cm, paperheight=100cm]{geometry}
+
+
+
+%% changing the fonts
+\usepackage{cmbright}
+%\usepackage[default]{cantarell}
+%\usepackage{avant}
+%\usepackage[math]{iwona}
+\usepackage[math]{kurier}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+
+%% add your packages here
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+%\usepackage{subfiles}
+\usepackage{standalone}
+
+
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{nomencl}
+
+\title{Keyword Search over Data Service Integration for Accurate Results}
+%\qquad version 2.1
+\author{Vidmantas Zemleris\\
+%  Faculty of Mathematics and Informatics\\
+   Vilnius University, Lithuania\\
+   (at CMS Experiment, CERN)\\
+  \texttt{vidmantas.zemleris@cern.ch}
+  \And
+  Valentin Kuznetsov\\
+  Cornell University, USA\\
+  \texttt{vkuznet@gmail.com}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% The greyedout annotation environment
+\newenvironment{lyxgreyedout}
+  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
+  {\ignorespacesafterend\egroup}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+\usepackage{color}
+\definecolor{note_fontcolor}{rgb}{0.80078125, 0.80078125, 0.80078125}
+
+
+\begin{document}
+%\newcommand{\skip1@preamble}{%
+% \let\document\relax\let\enddocument\relax%
+% \let\usepackage\relax%
+% \newenvironment{document}{}{}%
+% \renewcommand{\documentclass}[2][subfiles]{}}
+% \newcommand\subfile[1]{\begingroup\skip1@preamble\input{#1}\endgroup}
+
+
+%%%%% ---------- the background picture ---------- %%%%%
+%% to change it modify the macro \BackgroundPicture
+\ClearShipoutPicture
+\AddToShipoutPicture{\BackgroundPicture}
+
+\noindent % to have the picture right in the center
+\begin{tikzpicture}
+  \initializesizeandshifts
+  % \setxshift{15}
+  % \setyshift{2}
+
+
+  %% the title block, #1 - shift, the default value is (0,0), #2 - width, #3 - scale
+  %% the alias of the title block is `title', so we can refer to its boundaries later
+  \ifthenelse{\equal{\template}{1}}{ 
+    \titleblock{70}{1.0}
+  }{
+    %\titleblock{47}{1.5}	
+        \titleblock{75}{1.0}
+
+  }
+
+  %% a logo can be added to the title block
+  %% #1 - anchor relative to the title block, #2 - shift, #3 - width, #3 - file name
+  % \ifthenelse{\equal{\template}{2}}{ 
+  %   \addlogo[south west]{(2,0)}{6cm}{unibz_b.png}
+  % }{
+  %   \addlogo[south west]{(2,0)}{6cm}{unibz_w.png}
+  % }
+  \addlogo[south west]{(0,-1.5)}{6cm}{images/vu_logo.png}
+  \addlogo[south west]{(7,-1.5)}{6cm}{images/mif.png}
+	%
+  \addlogo[south east]{(0,-1.5)}{6cm}{images/cern_logo.png}
+  \addlogo[south east]{(-7,-1.5)}{6cm}{images/cms_logo.png}
+
+
+
+  %% a block node, with the specified position (optional), title and the content
+  %% #1 - where (optional), #2 - title, #3 - text
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+%  \getcurrentrow{box}
+  %\blocknodew[(0, 45)]{75}%
+  \blocknode%
+  {Summary}%
+  {%
+  \textbf{Background:} The goal of the virtual data service integration is to provide a coherent interface for querying a number of heterogenous data sources (e.g., web services, web forms, proprietary systems, etc.) in cases where accurate results are necessary.
+  %This work explores various aspects of its usability.
+
+\textbf{Problem:} Querying is usually carried out through a structured query language, such as SQL, which forces the users to learn the language and to get acquainted with data organization (i.e. the schema) thus negatively impacting the system’s usability. Limited access to data instances as well as  users’ concern with  accurate results of arbitrary queries present additional challenges to traditional approaches (such as query forms, information retrieval, keyword search over relational databases) making them not applicable.
+
+\textbf{Solution:} This poster presents a keyword search system which deals with  the above discussed problem by operating on available information: the metadata, such as the constraints on allowed values, analysis of user queries, and certain portions of data. Given a keyword query, it proposes a ranked list of structured queries along with the explanations of their meanings. Unlike previous implementations, the system is freely available and makes no assumptions about the input query, while maintaining its ability to leverage the query’s structural patterns - in case they exist. The system is discussed in the context of CMS data discovery service where the simplicity and capabilities of the search interface play a crucial role in the ability of its users to satisfy their information needs.
+  }
+
+
+  %% a callout block
+  %% #1 - rotate angle (optional), #2 - from, #3 - where, #4 - width, #5 - text
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+%  \calloutblock{($(box.center)+(-2,-8)$)}
+%  {($(box.center)+(10,-1)$)}
+%  {19cm}
+%  {\small
+%    Macro for creating a block node:
+%    \begin{itemize}
+%    \item[] \textbackslash blocknode\{Block Title\}\{Block Content\}
+%    \end{itemize}
+%    Macro \textbackslash blocknode has three parameters. The first one is
+%    optional and it is the position of the block. The first block will be
+%    automatically placed to (\$(firstrow)-(xshift)-(yshift)\$), which is the
+%    left corner below the title block. In most of the templates, (firstrow) is
+%    set to (title.south), where \emph{title} is the alias for the title
+%    block. Each subsequent block is automatically placed to
+%    [(\$(box.south)-(yshift)\$)], i.e., below the previous block aliased
+%    \emph{box}.  You can also use an explicit parameter, e.g., $(-10,30)$ (note
+%    that (0,0) is the center of the poster). The second parameter is the title
+%    of the block. Finally, the last parameter is the  actual content. 
+%  }
+
+
+
+
+  %% by default, the position of the new block node is right below the previous
+  %% block node, stored in (currenty)
+  %% box is the alias of the previous block, so we can refer to its boundaries
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode{DAS - a system for Virtual Data Integration}%
+  {%
+  \input{./das}%
+  }
+  \plainblock[3]{($(box.south)+(3,1)$)}{30}%
+  {it is overwhelming for users to}%
+  {
+  \begin{itemize}
+  	\item learn a query language
+	\item remember how exactly data is structured and named 
+  \end{itemize}
+  \textbf{\textit{Can keyword queries solve this?}}
+  }
+  
+  \getcurrentrow{note}
+  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
+
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode{Problem definition: Interpreting Keyword Queries} %
+  {%
+    \input{./prob_def}
+  }
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+
+  \calloutblock[5]{($(box.center)+(3,-0.7)$)}%
+  		{($(box.south east)+(-10,5.7)$)}{23} %
+  {%    
+    \vspace{0.3cm}
+    \input{prob_def_example}%
+    }
+  %% the coordinate (currenty) is used in the default placing of the next blocknode
+  %\getcurrentrow{note}
+  \getcurrentrow{note}
+  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
+
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode {Existing Works}%
+  {
+    \begin{itemize}
+    \item KEYRY
+	\item Keymantic
+	\item SODA %, Facebook graph search
+   
+    \end{itemize}
+  }
+  
+
+
+
+  %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
+  \startsecondcolumn 
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode%
+  {Implementation overview}%
+  {
+	\input{./overview}
+  }
+  %% to place the next node centered vertically in the second column, we can
+  %% obtain the y-coordinate of the previous node using macro
+  %% \getcurrentrow{note}, where note is the alias of the callout node, and
+  %% then specify the coordinate of the next node using coordinate (currentrow)
+  \getcurrentrow{box}
+  %% a plain block
+  %% #1 - rotate angle (optional), #2 - where, #3 - width, #4 - title, #5 - text
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \setplainblockfillcolor{white}
+  \plainblock[4]{($(box.south east)-(yshift)+(-10, 3.5)$)}%[($(currenty)+(0,10)$)]%
+  {20}{User sees this} %
+  {
+  \newline
+  	\includegraphics[width=1.0\textwidth]{ui_result.png} 
+  }
+  \getcurrentrow{note}
+  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)+(0, 3)$);
+
+  %% the coordinate (currenty) is used in the default placing of the next blocknode
+ %\getcurrentrow{note}
+ %\coordinate (currenty) at ($(currentrow)+(xshift)-(yshift)$);
+
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode%
+  {Scoring function}%
+  {
+	\input{./formulas}
+  }
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+%  \calloutblock{($(box.south east)-(8,-2)$)}
+%  {($(box.south east)-(16,2)$)}
+%  {30cm}
+%  {
+%    There are also callout blocks that allow for a more interesting layout of the
+%    poster. 
+%    \begin{itemize}
+%    \item[] \textbackslash calloutblock[rotate angle]\{from
+%      coordinate\}\{coordinate\}\{Block Width\}\{Block Content\} 
+%    \end{itemize}
+%    The alias for such blocks is \emph{note}.
+%  }
+
+
+
+
+
+   %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
+  %% (if column number is 3)
+  \startthirdcolumn
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode {Future work}%
+  {
+    \begin{itemize}
+    \item explore Ranked (Murty's) Munkres with Contextualization!?
+	\item make more generic?
+   
+    \end{itemize}
+  }
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode {Conclusions}%
+  {
+    \begin{itemize}
+    \item keyword search over data services still lacking attention (vs. relational data-bases)
+	\item with proper UI it may guide both beginner and advanced users    
+    \item summing log-likelihoods is better than plain scores (cf. Keymantic)
+   
+    \end{itemize}
+  }
+  \blocknode {References}%
+  {
+    KEYMANTIC
+  }
+
+
+\end{tikzpicture}
+
+
+\end{document}
+
+
+
+
