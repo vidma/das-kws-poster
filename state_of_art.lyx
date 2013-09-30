@@ -111,6 +111,13 @@ Keymantic (the closest work)
 score keyword mappings individually (entry points)
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+i.e.
+ weights for each (keyword; domain term) combination
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 solve
 \emph on
@@ -139,10 +146,6 @@ $kw_i$
 \end_layout
 
 \begin_deeper
-\begin_layout Itemize
-entry points are the weights for each (keyword, domain term) combination
-\end_layout
-
 \begin_layout Itemize
 uses heuristics to account for keyword interdependencies
 \end_layout
