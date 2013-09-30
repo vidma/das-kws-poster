@@ -1,6 +1,8 @@
 %% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass{standalone}
+\usepackage{wrapfig}
+\usepackage{textcomp}
 \usepackage{graphicx}
 
 \makeatletter
@@ -13,30 +15,40 @@
 \makeatother
 
 \begin{document}
+\begin{wrapfigure}{r}[10pt]{0.43\columnwidth}%
+\vspace{-40pt}
+
+\includegraphics[width=0.45\columnwidth]{/home/vidma/DAS_paper/figures/problem_statement_das_service_ex}\vspace{-20pt}\caption{a data-service (simplified)}
+\end{wrapfigure}%
+\textbf{The ''CMS Data Aggregation System'' (DAS):}
 \begin{itemize}
-\item uses simple structured queries 
-\item integrated access to proprietary data-sources 
+\item uses simple structured queries
+\item integrated access to heterogeneous services
 
 \begin{itemize}
-\item process the query \& send requests to services 
-\item eliminates inconsistencies in entity naming, data formats(XML, JSON)
-\item combining the results
+\item parse query \& contact services 
+\item eliminates inconsistencies in responses:
+
+\begin{itemize}
+\item entity naming
+\item data formats(XML, JSON)
 \end{itemize}
-\item uses lightweight service mappings
+\item combines the responses
+\end{itemize}
+\item requires only minimal service mappings
 
 \begin{itemize}
-\item minimal effort in defining services
+\item no predefined schema \textrightarrow{} minimal effort in defining
+services
 \item complete services structure is figured out in runtime
 \end{itemize}
 \end{itemize}
 
-\paragraph{Query language and Execution flow}
+\paragraph{Query language}
 
-The queries are formed specifying the entity the user is interested
-in (e.g. dataset, file, etc) and providing filtering criteria (e.g.
-attribute=value, attribute \emph{between} {[}v1, v2{]}). The results
-could be later 'piped' for further filtering, sorting or aggregation
-(min, max, avg, sum, count, median), e.g.: 
+must specify an entity to be retrieved and filtering criteria (as
+input to services). Optionally, the results could be 'piped' for further
+filtering, sorting or aggregation (e.g. min, avg, count, etc), e.g.: 
 
 \includegraphics[width=1\textwidth]{/home/vidma/DAS_paper/figures/DASQL_structure}
 \end{document}

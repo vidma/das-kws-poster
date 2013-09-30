@@ -140,15 +140,21 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 %% The greyedout annotation environment
+
+\usepackage{color}
+\definecolor{note_fontcolor}{rgb}{0.5, 0.5, 0.5}
+\definecolor{grey_light}{rgb}{0.95, 0.95, 0.95}
+
+
 \newenvironment{lyxgreyedout}
   {\textcolor{note_fontcolor}\bgroup\ignorespaces}
   {\ignorespacesafterend\egroup}
 %% A simple dot to overcome graphicx limitations
 \newcommand{\lyxdot}{.}
 
-\usepackage{color}
-\definecolor{note_fontcolor}{rgb}{0.80078125, 0.80078125, 0.80078125}
+\usepackage[english,british]{babel}
 
+\usepackage{textcomp}
 
 \begin{document}
 %\newcommand{\skip1@preamble}{%
@@ -204,12 +210,14 @@
   \blocknode%
   {Summary}%
   {%
-  \textbf{Background:} The goal of the virtual data service integration is to provide a coherent interface for querying a number of heterogenous data sources (e.g., web services, web forms, proprietary systems, etc.) in cases where accurate results are necessary.
+  \textbf{Background:} Virtual data integration aims at providing a coherent interface for querying heterogeneous data sources (e.g., web services, web forms, proprietary systems) with minimum upfront integration effort.%
   %This work explores various aspects of its usability.
 
-\textbf{Problem:} Querying is usually carried out through a structured query language, such as SQL, which forces the users to learn the language and to get acquainted with data organization (i.e. the schema) thus negatively impacting the system’s usability. Limited access to data instances as well as  users’ concern with  accurate results of arbitrary queries present additional challenges to traditional approaches (such as query forms, information retrieval, keyword search over relational databases) making them not applicable.
+\textbf{Problem:} Querying is usually carried out through a structured query language, such as SQL, which forces the users to learn the language and to get acquainted with data organization (i.e. the schema) thus negatively impacting the system’s usability.%
 
-\textbf{Solution:} This poster presents a keyword search system which deals with  the above discussed problem by operating on available information: the metadata, such as the constraints on allowed values, analysis of user queries, and certain portions of data. Given a keyword query, it proposes a ranked list of structured queries along with the explanations of their meanings. Unlike previous implementations, the system is freely available and makes no assumptions about the input query, while maintaining its ability to leverage the query’s structural patterns - in case they exist. The system is discussed in the context of CMS data discovery service where the simplicity and capabilities of the search interface play a crucial role in the ability of its users to satisfy their information needs.
+\textbf{Solution:} We present a keyword search system, which, given a keyword query, proposes a ranked list of structured queries along with explanations of their meanings. It operates mainly on the metadata, such as the constraints on allowed values, analysis of user queries, and only certain portions of the data. %
+Unlike previous implementations, the system is freely available and makes no assumptions about the input query, while maintaining its ability to leverage the query’s structural patterns - in case they exist.%
+%The system is discussed in the context of CMS data discovery service where the simplicity and capabilities of the search interface play a crucial role in the ability of its users to satisfy their information needs.
   }
 
 
@@ -244,22 +252,23 @@
   %% box is the alias of the previous block, so we can refer to its boundaries
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode{DAS - a system for Virtual Data Integration}%
+  \blocknode{Context: a system for Virtual Data Integration}%
   {%
   \input{./das}%
   }
   \plainblock[3]{($(box.south)+(3,1)$)}{30}%
-  {it is overwhelming for users to}%
-  {
+  {\vspace{-20pt}\newline%
+    still, it is overwhelming for users to:}%
+  {%\vspace{-10pt}
   \begin{itemize}
-  	\item learn a query language
-	\item remember how exactly data is structured and named 
+  	\item learn the query language
+	\item remember how exactly the data is structured and named 
   \end{itemize}
-  \textbf{\textit{Can keyword queries solve this?}}
-  }
+  \textbf{\textit{Could keyword queries solve this?}}%
+  \vspace{-20pt}}
   
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
+  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,0.5)$);
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
@@ -269,8 +278,9 @@
   }
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
-  \calloutblock[5]{($(box.center)+(3,-0.7)$)}%
-  		{($(box.south east)+(-10,5.7)$)}{23} %
+  \setplainblockfillcolor{grey_light}
+  \calloutblock[5]{($(box.center)+(1,6)$)}%
+  		{($(box.south east)+(-8.8,12)$)}{23} %
   {%    
     \vspace{0.3cm}
     \input{prob_def_example}%
@@ -278,18 +288,14 @@
   %% the coordinate (currenty) is used in the default placing of the next blocknode
   %\getcurrentrow{note}
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
+  %\coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
+  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,0)$);
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode {Existing Works}%
+  \blocknode {State of the art}%
   {
-    \begin{itemize}
-    \item KEYRY
-	\item Keymantic
-	\item SODA %, Facebook graph search
-   
-    \end{itemize}
+  	\input{state_of_art}
   }
   
 
@@ -297,6 +303,13 @@
 
   %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
   \startsecondcolumn 
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode%
+  {Challenges \& Solutions}%
+  {
+	\input{./challenges}
+  }
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
@@ -314,13 +327,14 @@
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \setplainblockfillcolor{white}
   \plainblock[4]{($(box.south east)-(yshift)+(-10, 3.5)$)}%[($(currenty)+(0,10)$)]%
-  {20}{User sees this} %
+  {20}{Finally, users see this} %
   {
   \newline
-  	\includegraphics[width=1.0\textwidth]{ui_result.png} 
+  	\includegraphics[width=1.0\textwidth]{ui_result.png}
+  	\vspace{-50pt}
   }
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)+(0, 3)$);
+  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)+(0, 1)$);
 
   %% the coordinate (currenty) is used in the default placing of the next blocknode
  %\getcurrentrow{note}

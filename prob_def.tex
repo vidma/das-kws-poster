@@ -1,8 +1,8 @@
 %% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass{standalone}
-\usepackage{wrapfig}
-\usepackage{graphicx}
+\usepackage{color}
+\definecolor{note_fontcolor}{rgb}{0.80078125, 0.80078125, 0.80078125}
 \usepackage{nomencl}
 % the following is useful when we have the old nomencl.sty package
 \providecommand{\printnomenclature}{\printglossary}
@@ -12,30 +12,28 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% A simple dot to overcome graphicx limitations
-\newcommand{\lyxdot}{.}
-
+%% The greyedout annotation environment
+\newenvironment{lyxgreyedout}
+  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
+  {\ignorespacesafterend\egroup}
 
 \makeatother
 
 \begin{document}
-\begin{wrapfigure}{o}{0.4\textwidth}%
-\vspace{-40pt}
-
-\includegraphics[width=0.4\textwidth]{/home/vidma/DAS_paper/figures/problem_statement_das_service_ex}\vspace{-20pt}\caption{a data-service (simplified)}
-\end{wrapfigure}%
-
-
 \textbf{Input:} query, KWQ\nomenclature{KWQ}{keyword query\\}=$\left(kw_{1},kw_{2},..,kw_{n}\right)$
 
 \textbf{Task: }translate it into structured query
 
-\textbf{Given: }metadata
+\textbf{Given}: \textbf{metadata only:}
 \begin{itemize}
 \item names of entities and their attributes 
 
 \begin{itemize}
-\item (either \emph{service inputs} or their \emph{output} fields)
+\item %
+\begin{lyxgreyedout}
+\emph{service inputs} or their \emph{output} fields%
+\end{lyxgreyedout}
+
 \end{itemize}
 \item possible values (only for some inputs)
 \item \emph{constraints} on data-service \emph{inputs}:
