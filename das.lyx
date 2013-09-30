@@ -60,35 +60,117 @@
 
 \begin_body
 
-\begin_layout Itemize
-uses simple structured queries 
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement r
+overhang 10pt
+width "43col%"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-40pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/vidma/DAS_paper/figures/problem_statement_das_service_ex.pdf
+	lyxscale 30
+	width 45col%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-20pt}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+a data-service (simplified)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\series bold
+The 
+\begin_inset Quotes erd
+\end_inset
+
+CMS Data Aggregation System
+\begin_inset Quotes erd
+\end_inset
+
+ (DAS):
 \end_layout
 
 \begin_layout Itemize
-integrated access to proprietary data-sources 
+uses simple structured queries
+\end_layout
+
+\begin_layout Itemize
+integrated access to heterogeneous services
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-process the query & send requests to services 
+parse query & contact services 
 \end_layout
 
 \begin_layout Itemize
-eliminates inconsistencies in entity naming, data formats(XML, JSON)
+eliminates inconsistencies in responses:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+entity naming
 \end_layout
 
 \begin_layout Itemize
-combining the results
+data formats(XML, JSON)
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-uses lightweight service mappings
+combines the responses
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+requires only minimal service mappings
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-minimal effort in defining services
+no predefined schema → minimal effort in defining services
 \end_layout
 
 \begin_layout Itemize
@@ -99,19 +181,15 @@ complete services structure is figured out in runtime
 \begin_layout Paragraph
 
 \series bold
-Query language and Execution flow
+Query language
 \end_layout
 
 \begin_layout Standard
-The queries are formed specifying the entity the user is interested in (e.g.
- dataset, file, etc) and providing filtering criteria (e.g.
- attribute=value, attribute 
-\emph on
-between
-\emph default
- [v1, v2]).
- The results could be later 'piped' for further filtering, sorting or aggregatio
-n (min, max, avg, sum, count, median), e.g.: 
+must specify an entity to be retrieved and filtering criteria (as input
+ to services).
+ Optionally, the results could be 'piped' for further filtering, sorting
+ or aggregation (e.g.
+ min, avg, count, etc), e.g.: 
 \end_layout
 
 \begin_layout Standard

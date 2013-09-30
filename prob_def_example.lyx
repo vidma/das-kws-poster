@@ -66,23 +66,27 @@
 Example.
  
 \series default
-Consider these queries: 
-\end_layout
-
-\begin_layout Itemize
-average
+Consider this query: average
 \color red
  
 \color inherit
-size of RelVal datasets with number of events more than 1000
+size of RelVal datasets with its number of events > 1000
 \end_layout
 
 \begin_layout Itemize
-avg dataset size RelVal number of events>1000
+average RelVal dataset size nevents>1000
 \end_layout
 
 \begin_layout Itemize
-avg(dataset size) RelVal `number of events'>1000
+avg(dataset size) RelVal 
+\begin_inset Quotes eld
+\end_inset
+
+number of events
+\begin_inset Quotes erd
+\end_inset
+
+>1000
 \end_layout
 
 \begin_layout Standard
