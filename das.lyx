@@ -179,13 +179,6 @@ caption{DAS workflow}
 
 
 \backslash
-vspace{-4cm}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
 end{wrapfigure}% 
 \end_layout
 
@@ -217,27 +210,35 @@ integrates heterogeneous services
 
 \begin_deeper
 \begin_layout Itemize
-parse the query & contact services
+
+\size small
+parse the query
 \end_layout
 
 \begin_layout Itemize
-eliminate inconsistencies in responses:
+
+\size small
+contact services
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+eliminate inconsistencies in the responses:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-entity naming
-\end_layout
 
-\begin_layout Itemize
-data formats 
-\size footnotesize
-(XML, JSON)
+\size small
+entity naming; data formats (XML, JSON)
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-combine them
+
+\size small
+combine the responses
 \end_layout
 
 \end_deeper
@@ -261,7 +262,22 @@ complete services structure is figured out in runtime
 \end_layout
 
 \begin_layout Itemize
-minimal effort in defining services
+minimal effort in defining services 
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.7cm}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -272,8 +288,12 @@ Queries
 \end_layout
 
 \begin_layout Standard
+
+\size footnotesize
 must specify: entity to be retrieved and filtering criteria.
  Optionally, the results can be further filtered, sorted or aggregated
+\size default
+
 \begin_inset Note Note
 status collapsed
 

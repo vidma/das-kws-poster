@@ -61,116 +61,26 @@
 \begin_body
 
 \begin_layout Standard
-
-\lang english
-\begin_inset Formula 
-\[
-score\_prob=\sum_{i=1}^{|KWQ|}\left({\displaystyle {\displaystyle \ln}\left(score(tag_{i}|kw_{i})\right)}+\sum_{h_{j}\in H}h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula $score(tag_{i}|kw_{i})$
-\end_inset
-
- - likelihood of 
-\begin_inset Formula $kw_{i}$
-\end_inset
-
- to be 
-\begin_inset Formula $tag_{i}$
-\end_inset
-
- (from entry points step)
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- 
-\begin_inset Note Note
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\lang english
-in score_prob 
-\begin_inset Formula $score(tag_{i}=unknown|kw_{i})$
-\end_inset
 
- uses predefined 
-\begin_inset Formula $P(unknown)$
-\end_inset
-
-.
+\backslash
+vspace{-1cm}
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula $h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})$
-\end_inset
-
- - the score boost returned by heuristic 
-\begin_inset Formula $h_{j}$
-\end_inset
-
- given a tagging so far (often all 
-\begin_inset Formula $i-1$
-\end_inset
-
- tags are not needed).
- 
-\end_layout
-
-\begin_layout Paragraph
-
+\series bold
 \shape smallcaps
-So far we use exhaustive search ranker.
- why?
+for simplicity it is based on exhaustive search:
 \end_layout
 
 \begin_layout Itemize
-simpler; our schema is quite small
+our schema is quite small
 \end_layout
 
 \begin_deeper
@@ -209,7 +119,7 @@ invalid
 status open
 
 \begin_layout Plain Layout
-that are not supported by services yet
+that are not yet supported by services
 \end_layout
 
 \end_inset
@@ -223,5 +133,168 @@ large amounts of data managed by services; performance considerations
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+innerblock{Scoring function}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+vspace{-3cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula 
+\[
+final\; score=\sum_{i=1}^{|KWQ|}\left({\displaystyle {\displaystyle \log}\left(score_{tag_{i}|kw_{i}}\right)}+\sum_{h_{j}\in H}h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\lang english
+\begin_inset Formula $score_{tag_{i}|kw_{i}}$
+\end_inset
+
+ - likelihood of 
+\begin_inset Formula $kw_{i}$
+\end_inset
+
+ to be 
+\begin_inset Formula $tag_{i}$
+\end_inset
+
+ 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+
+\size small
+\color none
+\lang english
+(from entry points step)
+\end_layout
+
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\lang english
+\begin_inset Formula $score(tag_{i}=unknown|kw_{i})$
+\end_inset
+
+ currently uses predefined 
+\begin_inset Formula $P(unknown)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\lang english
+\begin_inset Formula $h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})$
+\end_inset
+
+ - the score boost returned by heuristic 
+\begin_inset Formula $h_{j}$
+\end_inset
+
+ given the tag(s) nearby.
+ 
+\size default
+\lang british
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.5cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Our finding:
+\series bold
+ 
+\end_layout
+
+\begin_layout Standard
+summing log-likelihoods is better than plain scores (cf.
+ Keymantic)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

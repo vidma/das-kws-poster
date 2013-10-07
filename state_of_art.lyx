@@ -70,7 +70,7 @@ status open
 
 
 \backslash
-vspace{-5cm}
+vspace{-3cm}
 \end_layout
 
 \end_inset
@@ -78,9 +78,10 @@ vspace{-5cm}
 
 \end_layout
 
-\begin_layout Paragraph
-
+\begin_layout Itemize
+Keymantic (the closest work)
 \series bold
+
 \begin_inset Note Note
 status collapsed
 
@@ -112,10 +113,6 @@ vspace{0cm}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-Keymantic (the closest work)
 \end_layout
 
 \begin_deeper
@@ -235,7 +232,10 @@ may need to (un)contextualize multiple times
 \size small
 to get multiple results, repeat recursively forcing/preventing certain sub-assig
 nments
-\end_layout
+\color red
+
+\begin_inset Note Note
+status open
 
 \begin_layout Itemize
 
@@ -244,7 +244,6 @@ nments
 Presenter's note: may not catch the optimum solution if:
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
 
 \size small
@@ -252,6 +251,7 @@ Presenter's note: may not catch the optimum solution if:
 contextualization plays crucial role in selecting it
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 
 \size small
@@ -260,6 +260,11 @@ and do not wish to generate ALL assignments
 \end_layout
 
 \end_deeper
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \end_deeper
 \end_deeper

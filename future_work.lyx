@@ -60,7 +60,7 @@
 
 \begin_body
 
-\begin_layout Paragraph*
+\begin_layout Standard
 
 \series bold
 \begin_inset ERT
@@ -70,7 +70,7 @@ status open
 
 
 \backslash
-vspace{-3cm}
+vspace{-1.5cm}
 \end_layout
 
 \end_inset
@@ -79,9 +79,7 @@ vspace{-3cm}
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-advanced autocompletion [photo!]
+improve autocompletion prototype
 \end_layout
 
 \begin_layout Itemize
@@ -89,13 +87,43 @@ improve the ranker
 \end_layout
 
 \begin_layout Itemize
-look into advanced methods of generic performance improvements to the services
- like 
-\begin_inset Quotes eld
+generic ways to improve services' performance, e.g.
+ 
+\emph on
+materialized views with incremental refresh
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0cm}
+\end_layout
+
 \end_inset
 
-materialized view with the incremental refresh
-\begin_inset Quotes erd
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+innerblock{Open problems 
+\backslash
+& ideas}{
+\end_layout
+
 \end_inset
 
 
@@ -104,7 +132,7 @@ materialized view with the incremental refresh
 \begin_layout Paragraph
 
 \shape smallcaps
-top-K (semi-)optimal solutions with contextualization?
+top-k (semi-)optimal solutions with Contextualization?
 \end_layout
 
 \begin_layout Standard
@@ -121,6 +149,8 @@ status open
 \end_layout
 
 \begin_layout Itemize
+
+\color red
 maybe Ranked (Murty’s) Munkres with Contextualization!?
 \end_layout
 
@@ -135,34 +165,46 @@ some
 
 \end_deeper
 \begin_layout Itemize
-
-\series bold
-out of scope, ask for handouts
+out of scope, ask for handouts/chat
 \end_layout
 
 \begin_layout Paragraph
 
 \shape smallcaps
-Reflections on the HMM approach:
+Problematics of the HMM approach:
 \end_layout
 
 \begin_layout Itemize
-what is modelled is not same as seen by user
+what is modelled is not necessarily same as seen by user
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
 models 
-\begin_inset Formula $kw_{i}\rightarrow t_{j},$
+\begin_inset Formula $kw_{i}\rightarrow tag_{j},$
 \end_inset
 
  while user sees structured queries
 \end_layout
 
 \begin_layout Itemize
-therefore, hard to get automatically collect training data 
+therefore, hard to automatically collect training data
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

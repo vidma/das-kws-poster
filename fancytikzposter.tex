@@ -15,7 +15,7 @@
 %%%%% --------- Change here if you want ---------- %%%%%
 %% margin for the geometry package, must be changed before using the geometry package
 %% default value is 4cm
-\setmargin{2}
+\setmargin{1.2}
 
 %% the space between the blocks
 %% default value is 2cm
@@ -215,17 +215,21 @@
   \blocknode%
   {Summary}%
   {%
-  \textbf{Background:} Virtual data integration aims at providing a coherent interface for querying heterogeneous data sources (e.g. web services and proprietary systems) with minimum upfront effort in integration. %
+  %\textbf{Background:} 
+  Virtual data integration aims at providing a coherent interface for querying heterogeneous data sources (e.g. web services, proprietary systems) with minimum upfront effort in integration. %
   %This work explores various aspects of its usability.
-Data is usually accessed through a structured query language, such as SQL, forcing users to learn the language and to get acquainted with data organization.
+Data is usually accessed through a structured queries, such as SQL, requiring to learn the language and to get acquainted with data organization, which may pose problems even to proficient users.
 % thus negatively impacting the system’s usability.%
 
 %\note{, given a keyword query,}
-\textbf{Solution:} We present a keyword search system, which proposes a ranked list of structured queries along with explanations of their meanings. It operates mainly on the metadata, such as the constraints on inputs accepted by services.
+%\textbf{Solution:} 
+\quad We present a keyword search system, which proposes a ranked list of structured queries along with their explanations. It operates mainly on the metadata, such as the constraints on inputs accepted by services.
 %{\color{red}, analysis of user queries, and only certain portions of the data.} %
 % nlike previous implementations,
 % and makes no assumptions about the input query, while maintaining its ability to leverage the query’s structural patterns - in case they exist.}%
-It was developed as an integral part of the CMS data discovery service {\color{red} focusing on simplicity and capabilities of the interface}, and is currently available freely as open source.
+It was developed as an integral part of the CMS data discovery service 
+	% {\color{red} focusing on simplicity and capabilities of the interface},
+	 and is currently available as open source.
 %{\color{red}The system is }.
 }
 
@@ -288,8 +292,8 @@ It was developed as an integral part of the CMS data discovery service {\color{r
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
   \setplainblockfillcolor{grey_light}
-  \calloutblock[5]{($(box.center)+(1,6)$)}%
-  		{($(box.south east)+(-9.5,11.5)$)}{23} %
+  \calloutblock[4]{($(box.center)+(10,6)$)}%
+  		{($(box.south east)+(-11,10)$)}{23} %
   {%    
     \vspace{0.3cm}
     \input{prob_def_example}%
@@ -316,14 +320,25 @@ It was developed as an integral part of the CMS data discovery service {\color{r
   %% #1 - rotate angle (optional), #2 - where, #3 - width, #4 - title, #5 - text
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \setplainblockfillcolor{white}
-  \plainblock[4]{($(box.south east)-(yshift)+(-10, 3.5)$)}%
+  \plainblock[4]{($(box.south east)-(yshift)+(-14, 3.5)$)}%
   {27}{Finally, users see this} %
   {
   \newline
   	\includegraphics[width=1.0\textwidth]{ui_result.png}
   	\vspace{-50pt}
   }
+  
+  \plainblock[0]{($(box.south west)-(yshift)+(xshift)+(-17,0)$)}%
+  {8cm}{} %
+  {\newline\vspace{-0cm}
+  	\textbf{More info:}\vspace{0.5cm}
+  	\newline
+    \includegraphics[width=5cm]{images/qrcode.png}
+  	\vspace{-0cm}
+  }  
+  
   \getcurrentrow{note}
+  \coordinate (kws_overv) at ($(box.south east)$);  
   \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)+(0, 1)$);
 
   %% the coordinate (currenty) is used in the default placing of the next blocknode
@@ -339,7 +354,7 @@ It was developed as an integral part of the CMS data discovery service {\color{r
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
-  {Challenges \& Solutions}%
+  {Challenges}%
   {
 	\input{./challenges}
   }
@@ -347,7 +362,7 @@ It was developed as an integral part of the CMS data discovery service {\color{r
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
-  {Details: \color{red}Scoring \& Ranker}%
+  {The ranker}%
   {
 	\input{./formulas}
   }
@@ -376,17 +391,33 @@ It was developed as an integral part of the CMS data discovery service {\color{r
   {
     \input{future_work}
   }
+  
+  
+  \setplainblockfillcolor{grey_light}
+  \calloutblock[0]{($(kws_overv)+(-2,3)$)}%
+  		{($(kws_overv)+(20, -0)$)}{40} %
+  {%    
+    \vspace{0.3cm}
+    \textbf{Autocompletion to ease typing (keyword) queries (prototype)}\newline
+     \includegraphics[width=35cm]{images/autocompl.png}
+    }
+  %% the coordinate (currenty) is used in the default placing of the next blocknode
+  %\getcurrentrow{note}
+  \getcurrentrow{note}
+  %\coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
+  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,0)$);
+
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode {Conclusions}%
-  {
-    \begin{itemize}
-    \item keyword search over data services still lacking attention (vs. relational data-bases)
-	\item with proper UI it may guide both beginner and advanced users    
-    \item summing log-likelihoods is better than plain scores (cf. Keymantic)
-   
-    \end{itemize}
-  }
+  %\blocknode {Conclusions}%
+  %{
+  %  \begin{itemize}
+  %  \item keyword search over data services still lacking attention (vs. relational data-bases)
+%	\item with proper UI it may guide both beginner and advanced users    
+%    \item summing log-likelihoods is better than plain scores (cf. Keymantic)
+
+  %  \end{itemize}
+  %}
   %\blocknode {References}%
   %{
   %  KEYMANTIC
