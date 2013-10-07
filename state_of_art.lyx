@@ -70,7 +70,7 @@ status open
 
 
 \backslash
-vspace{-4cm}
+vspace{-5cm}
 \end_layout
 
 \end_inset
@@ -78,28 +78,40 @@ vspace{-4cm}
 
 \end_layout
 
-\begin_layout Paragraph*
-
-\series bold
-Keyword queries:
-\end_layout
-
-\begin_layout Itemize
-are ambiguous → ranked list of structured query suggestions
-\end_layout
-
-\begin_layout Itemize
-nearby keywords are often related
-\end_layout
-
 \begin_layout Paragraph
 
 \series bold
-Related Works
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Paragraph
+
+\shape smallcaps
+Closely related 
 \end_layout
 
-\begin_layout Standard
-(on keyword search over services):
+\begin_layout Plain Layout
+(works on keyword search over services):
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -108,16 +120,30 @@ Keymantic (the closest work)
 
 \begin_deeper
 \begin_layout Enumerate
-score keyword mappings individually (entry points)
+score keyword mappings individually 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+ (entry points)
 \end_layout
 
-\begin_deeper
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
 \begin_layout Itemize
 i.e.
  weights for each (keyword; domain term) combination
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Enumerate
 solve
 \emph on
@@ -132,48 +158,56 @@ weighted bipartite assignment
  
 \emph default
 (
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$kw_i$
-\end_layout
-
+\begin_inset Formula $kw_{i}\rightarrow tag_{j}$
 \end_inset
 
-→domain term) problem to maximize sum of weights
+) 
+\emph on
+with contextualizations:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-uses heuristics to account for keyword interdependencies
+maximize total sum of weights
 \end_layout
 
 \begin_layout Itemize
+uses heuristics to account for keyword interdependencies (contextualization)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+e.g.
+ <table_name> <attribute>; <attribute> <its value>; 
+\end_layout
+
+\begin_layout Itemize
+
+\size small
 solves it 
 \emph on
 approximately
 \emph default
- with modified Munkres algorithm
+ with Munkres algorithm modified to consider
 \emph on
- with contextualizations:
+ contextualizations:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-modifies the weights of 
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-$kw_i$
-\end_layout
-
+\size small
+contextualize - modify weights of 
+\begin_inset Formula $\ensuremath{kw_{i}\rightarrow tag_{j}}$
 \end_inset
 
- in run time of it's 
+, if 
+\begin_inset Formula $tag_{j}$
+\end_inset
+
+ is 
 \begin_inset Quotes eld
 \end_inset
 
@@ -181,14 +215,52 @@ related
 \begin_inset Quotes erd
 \end_inset
 
- to earlier assignments
+ to earlier sub-assignments
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\size small
+may need to (un)contextualize multiple times
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 to get multiple results, repeat recursively forcing/preventing certain sub-assig
 nments
 \end_layout
 
+\begin_layout Itemize
+
+\size small
+\color red
+Presenter's note: may not catch the optimum solution if:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+\color red
+contextualization plays crucial role in selecting it
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+\color red
+and do not wish to generate ALL assignments
+\end_layout
+
+\end_deeper
+\end_deeper
 \end_deeper
 \end_deeper
 \begin_layout Enumerate
@@ -207,20 +279,26 @@ status open
 
 \end_inset
 
-to label keywords
+to label keywords as schema terms
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-HMM's initial parameters can be estimated from heuristics 
+
+\size small
+HMM's initial parameters can be estimated from similar heuristics as above
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 later machine learning can be used 
 \begin_inset Note Greyedout
 status open
 
 \begin_layout Plain Layout
+
+\size small
 (if logs available)
 \end_layout
 
@@ -230,19 +308,37 @@ status open
 \end_layout
 
 \end_deeper
-\begin_layout Paragraph*
+\begin_layout Paragraph
+
+\shape smallcaps
 \begin_inset Note Note
-status open
+status collapsed
 
-\begin_layout Paragraph*
+\begin_layout Paragraph
 
-\series bold
-Further:
+\shape smallcaps
+Farther:
 \end_layout
 
 \begin_layout Itemize
-SODA - search over large data-warehouse using an ontology of real-world
- concepts
+SODA - over large data-warehouse; focuses on ontology of real-world concepts
+ (for 
+\begin_inset Quotes eld
+\end_inset
+
+entry points
+\begin_inset Quotes erd
+\end_inset
+
+) rather than [
+\begin_inset Quotes eld
+\end_inset
+
+us
+\begin_inset Quotes erd
+\end_inset
+
+] also in scoring 
 \end_layout
 
 \begin_layout Itemize
@@ -253,11 +349,21 @@ SeCo
 \begin_inset Quotes erd
 \end_inset
 
- - Natural Language open-domain queries to compose services
+ - natural language 
+\emph on
+open-domain
+\emph default
+ queries to compose services 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Facebook graph search
 \end_layout
 
-\begin_layout Itemize
-Facebook graph search
+\end_inset
+
+
 \end_layout
 
 \end_inset

@@ -78,11 +78,7 @@ height_special "totalheight"
 status open
 
 \begin_layout Itemize
-
-\emph on
-tokenizer
-\emph default
-: 
+tokenizer:
 \end_layout
 
 \begin_deeper
@@ -127,7 +123,7 @@ status open
 \end_layout
 
 \begin_layout Itemize
-IR (IDF-based)
+IR (IDF-based) 
 \begin_inset Note Greyedout
 status open
 
@@ -231,10 +227,9 @@ status open
 
 \begin_layout Plain Layout
 
-\series bold
 
 \backslash
-vspace{-80}
+vspace{-80pt}
 \end_layout
 
 \end_inset

@@ -162,5 +162,66 @@ in score_prob
  
 \end_layout
 
+\begin_layout Paragraph
+
+\shape smallcaps
+So far we use exhaustive search ranker.
+ why?
+\end_layout
+
+\begin_layout Itemize
+simpler; our schema is quite small
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+\color red
+our
+\series bold
+ cython
+\series default
+ implementation is quite fast (often bound by MongoDB/IR engine to retrieve
+ entry points)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+allows finding optimal solutions
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+easy to filter out MANY 
+\begin_inset Quotes eld
+\end_inset
+
+invalid
+\begin_inset Quotes erd
+\end_inset
+
+ solution candidates
+\color inherit
+ 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+that are not supported by services yet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+large amounts of data managed by services; performance considerations
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

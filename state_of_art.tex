@@ -1,0 +1,81 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{standalone}
+\usepackage{color}
+\definecolor{note_fontcolor}{rgb}{0.80078125, 0.80078125, 0.80078125}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% The greyedout annotation environment
+\newenvironment{lyxgreyedout}
+  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
+  {\ignorespacesafterend\egroup}
+
+\makeatother
+
+\begin{document}
+
+\paragraph*{\vspace{-5cm}}
+
+
+\paragraph{}
+\begin{itemize}
+\item Keymantic (the closest work)
+
+\begin{enumerate}
+\item score keyword mappings individually %
+\begin{lyxgreyedout}
+ (entry points)%
+\end{lyxgreyedout}
+{} 
+\item solve\emph{ ``weighted bipartite assignment'' }($kw_{i}\rightarrow tag_{j}$)
+\emph{with contextualizations:}
+
+\begin{itemize}
+\item maximize total sum of weights
+\item uses heuristics to account for keyword interdependencies (contextualization)
+
+\begin{itemize}
+\item {\small{e.g. \textless{}table\_name\textgreater{} \textless{}attribute\textgreater{};
+\textless{}attribute\textgreater{} \textless{}its value\textgreater{}; }}{\small \par}
+\item {\small{solves it }}\emph{\small{approximately}}{\small{ with Munkres
+algorithm modified to consider}}\emph{\small{ contextualizations:}}{\small \par}
+
+\begin{itemize}
+\item {\small{contextualize - modify weights of $\ensuremath{kw_{i}\rightarrow tag_{j}}$,
+if $tag_{j}$ is ``related'' to earlier sub-assignments}}{\small \par}
+\item {\small{to get multiple results, repeat recursively forcing/preventing
+certain sub-assignments}}{\small \par}
+\item \textcolor{red}{\small{Presenter's note: may not catch the optimum
+solution if:}}{\small \par}
+
+\begin{itemize}
+\item \textcolor{red}{\small{contextualization plays crucial role in selecting
+it}}{\small \par}
+\item \textcolor{red}{\small{and do not wish to generate ALL assignments}}{\small \par}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item interpret generated mappings as SQL queries
+\end{enumerate}
+\item KEYRY - uses HMM %
+\begin{lyxgreyedout}
+(Hidden Markov Model) %
+\end{lyxgreyedout}
+to label keywords as schema terms
+
+\begin{itemize}
+\item {\small{HMM's initial parameters can be estimated from similar heuristics
+as above}}{\small \par}
+\item {\small{later machine learning can be used }}%
+\begin{lyxgreyedout}
+{\small{(if logs available)}}%
+\end{lyxgreyedout}
+{\small \par}
+\end{itemize}
+\end{itemize}
+
+\paragraph{\textsc{}}
+\end{document}

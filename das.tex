@@ -1,8 +1,6 @@
 %% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass{standalone}
-\usepackage{wrapfig}
-\usepackage{textcomp}
 \usepackage{graphicx}
 
 \makeatletter
@@ -15,40 +13,41 @@
 \makeatother
 
 \begin{document}
-\begin{wrapfigure}{r}[10pt]{0.43\columnwidth}%
-\vspace{-40pt}
+\begin{wrapfigure}{r}[0.1\columnwidth]{0.6\columnwidth}% 
+\vspace{-40pt}\hspace{-1cm}
+\includegraphics[width=0.55\columnwidth]{images/das}
+\vspace{-2.5cm}
+\caption{DAS workflow}
+\vspace{-4cm}
+\end{wrapfigure}% 
 
-\includegraphics[width=0.45\columnwidth]{/home/vidma/DAS_paper/figures/problem_statement_das_service_ex}\vspace{-20pt}\caption{a data-service (simplified)}
-\end{wrapfigure}%
-\textbf{The ''CMS Data Aggregation System'' (DAS):}
+\textbf{''CMS Data Aggregation System'' (DAS):}
 \begin{itemize}
-\item uses simple structured queries
-\item integrated access to heterogeneous services
+\item accepts simple structured queries
+\item integrates heterogeneous services
 
 \begin{itemize}
-\item parse query \& contact services 
-\item eliminates inconsistencies in responses:
+\item parse the query \& contact services
+\item eliminate inconsistencies in responses:
 
 \begin{itemize}
 \item entity naming
-\item data formats(XML, JSON)
+\item data formats {\footnotesize{(XML, JSON)}}{\footnotesize \par}
 \end{itemize}
-\item combines the responses
+\item combine them
 \end{itemize}
 \item requires only minimal service mappings
 
 \begin{itemize}
-\item no predefined schema \textrightarrow{} minimal effort in defining
-services
-\item complete services structure is figured out in runtime
+\item no predefined schema
+\item minimal effort in defining services
 \end{itemize}
 \end{itemize}
 
-\paragraph{Query language}
+\paragraph{Queries}
 
-must specify an entity to be retrieved and filtering criteria (as
-input to services). Optionally, the results could be 'piped' for further
-filtering, sorting or aggregation (e.g. min, avg, count, etc), e.g.: 
+must specify: entity to be retrieved and filtering criteria. Optionally,
+the results can be further filtered, sorted or aggregated
 
 \includegraphics[width=1\textwidth]{/home/vidma/DAS_paper/figures/DASQL_structure}
 \end{document}

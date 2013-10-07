@@ -15,7 +15,7 @@
 %%%%% --------- Change here if you want ---------- %%%%%
 %% margin for the geometry package, must be changed before using the geometry package
 %% default value is 4cm
-% \setmargin{4}
+\setmargin{2}
 
 %% the space between the blocks
 %% default value is 2cm
@@ -128,12 +128,14 @@
 \author{Vidmantas Zemleris\\
 %  Faculty of Mathematics and Informatics\\
    Vilnius University, Lithuania\\
-   (at CMS Experiment, CERN)\\
-  \texttt{vidmantas.zemleris@cern.ch}
+   %(at CMS Experiment, CERN)\\
+  \texttt{vidmantas.zemleris@cern.ch}\\
+  for the benefit of CMS Collaboration
   \And
   Valentin Kuznetsov\\
   Cornell University, USA\\
   \texttt{vkuznet@gmail.com}
+  \newline
 }
 
 
@@ -157,6 +159,9 @@
 \usepackage{textcomp}
 
 \begin{document}
+
+\newcommand{\note}{}
+
 %\newcommand{\skip1@preamble}{%
 % \let\document\relax\let\enddocument\relax%
 % \let\usepackage\relax%
@@ -210,15 +215,19 @@
   \blocknode%
   {Summary}%
   {%
-  \textbf{Background:} Virtual data integration aims at providing a coherent interface for querying heterogeneous data sources (e.g., web services, web forms, proprietary systems) with minimum upfront integration effort.%
+  \textbf{Background:} Virtual data integration aims at providing a coherent interface for querying heterogeneous data sources (e.g. web services and proprietary systems) with minimum upfront effort in integration. %
   %This work explores various aspects of its usability.
+Data is usually accessed through a structured query language, such as SQL, forcing users to learn the language and to get acquainted with data organization.
+% thus negatively impacting the system’s usability.%
 
-\textbf{Problem:} Querying is usually carried out through a structured query language, such as SQL, which forces the users to learn the language and to get acquainted with data organization (i.e. the schema) thus negatively impacting the system’s usability.%
-
-\textbf{Solution:} We present a keyword search system, which, given a keyword query, proposes a ranked list of structured queries along with explanations of their meanings. It operates mainly on the metadata, such as the constraints on allowed values, analysis of user queries, and only certain portions of the data. %
-Unlike previous implementations, the system is freely available and makes no assumptions about the input query, while maintaining its ability to leverage the query’s structural patterns - in case they exist.%
-%The system is discussed in the context of CMS data discovery service where the simplicity and capabilities of the search interface play a crucial role in the ability of its users to satisfy their information needs.
-  }
+%\note{, given a keyword query,}
+\textbf{Solution:} We present a keyword search system, which proposes a ranked list of structured queries along with explanations of their meanings. It operates mainly on the metadata, such as the constraints on inputs accepted by services.
+%{\color{red}, analysis of user queries, and only certain portions of the data.} %
+% nlike previous implementations,
+% and makes no assumptions about the input query, while maintaining its ability to leverage the query’s structural patterns - in case they exist.}%
+It was developed as an integral part of the CMS data discovery service {\color{red} focusing on simplicity and capabilities of the interface}, and is currently available freely as open source.
+%{\color{red}The system is }.
+}
 
 
   %% a callout block
@@ -272,7 +281,7 @@ Unlike previous implementations, the system is freely available and makes no ass
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode{Problem definition: Interpreting Keyword Queries} %
+  \blocknode{Interpreting Keyword Queries: Problem definition} %
   {%
     \input{./prob_def}
   }
@@ -280,7 +289,7 @@ Unlike previous implementations, the system is freely available and makes no ass
 
   \setplainblockfillcolor{grey_light}
   \calloutblock[5]{($(box.center)+(1,6)$)}%
-  		{($(box.south east)+(-8.8,12)$)}{23} %
+  		{($(box.south east)+(-9.5,11.5)$)}{23} %
   {%    
     \vspace{0.3cm}
     \input{prob_def_example}%
@@ -293,27 +302,8 @@ Unlike previous implementations, the system is freely available and makes no ass
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode {State of the art}%
-  {
-  	\input{state_of_art}
-  }
-  
-
-
-
-  %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
-  \startsecondcolumn 
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
-  {Challenges \& Solutions}%
-  {
-	\input{./challenges}
-  }
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode%
-  {Implementation overview}%
+  {Keyword search overview}%
   {
 	\input{./overview}
   }
@@ -326,8 +316,8 @@ Unlike previous implementations, the system is freely available and makes no ass
   %% #1 - rotate angle (optional), #2 - where, #3 - width, #4 - title, #5 - text
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \setplainblockfillcolor{white}
-  \plainblock[4]{($(box.south east)-(yshift)+(-10, 3.5)$)}%[($(currenty)+(0,10)$)]%
-  {20}{Finally, users see this} %
+  \plainblock[4]{($(box.south east)-(yshift)+(-10, 3.5)$)}%
+  {27}{Finally, users see this} %
   {
   \newline
   	\includegraphics[width=1.0\textwidth]{ui_result.png}
@@ -341,28 +331,39 @@ Unlike previous implementations, the system is freely available and makes no ass
  %\coordinate (currenty) at ($(currentrow)+(xshift)-(yshift)$);
 
 
+
+
+
+  %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
+  \startsecondcolumn 
+
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
-  {Scoring function}%
+  {Challenges \& Solutions}%
+  {
+	\input{./challenges}
+  }
+
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode%
+  {Details: \color{red}Scoring \& Ranker}%
   {
 	\input{./formulas}
   }
 
+
+
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-%  \calloutblock{($(box.south east)-(8,-2)$)}
-%  {($(box.south east)-(16,2)$)}
-%  {30cm}
-%  {
-%    There are also callout blocks that allow for a more interesting layout of the
-%    poster. 
-%    \begin{itemize}
-%    \item[] \textbackslash calloutblock[rotate angle]\{from
-%      coordinate\}\{coordinate\}\{Block Width\}\{Block Content\} 
-%    \end{itemize}
-%    The alias for such blocks is \emph{note}.
-%  }
-
-
+  \blocknode {Related works}%
+  {
+  	\input{state_of_art}
+  }
+  
+  % Reflections on existing approaches
+  % Munkres - how to guarantee top-K with (approx?) contextualization
+  % HMM - how to know...
+  
 
 
 
@@ -371,13 +372,9 @@ Unlike previous implementations, the system is freely available and makes no ass
   \startthirdcolumn
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode {Future work}%
+  \blocknode {Future work \& Interesting problems}%
   {
-    \begin{itemize}
-    \item explore Ranked (Murty's) Munkres with Contextualization!?
-	\item make more generic?
-   
-    \end{itemize}
+    \input{future_work}
   }
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
@@ -390,10 +387,10 @@ Unlike previous implementations, the system is freely available and makes no ass
    
     \end{itemize}
   }
-  \blocknode {References}%
-  {
-    KEYMANTIC
-  }
+  %\blocknode {References}%
+  %{
+  %  KEYMANTIC
+  %}
 
 
 \end{tikzpicture}

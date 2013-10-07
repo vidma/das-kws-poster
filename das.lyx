@@ -61,6 +61,10 @@
 \begin_body
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Wrap figure
 lines 0
 placement r
@@ -120,8 +124,79 @@ a data-service (simplified)
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{wrapfigure}{r}[0.1
+\backslash
+columnwidth]{0.6
+\backslash
+columnwidth}% 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-40pt}
+\backslash
+hspace{-1cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=0.55
+\backslash
+columnwidth]{images/das}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-2.5cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{DAS workflow}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-4cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{wrapfigure}% 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \series bold
-The 
 \begin_inset Quotes erd
 \end_inset
 
@@ -133,20 +208,20 @@ CMS Data Aggregation System
 \end_layout
 
 \begin_layout Itemize
-uses simple structured queries
+accepts simple structured queries
 \end_layout
 
 \begin_layout Itemize
-integrated access to heterogeneous services
+integrates heterogeneous services
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-parse query & contact services 
+parse the query & contact services
 \end_layout
 
 \begin_layout Itemize
-eliminates inconsistencies in responses:
+eliminate inconsistencies in responses:
 \end_layout
 
 \begin_deeper
@@ -155,12 +230,14 @@ entity naming
 \end_layout
 
 \begin_layout Itemize
-data formats(XML, JSON)
+data formats 
+\size footnotesize
+(XML, JSON)
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-combines the responses
+combine them
 \end_layout
 
 \end_deeper
@@ -170,26 +247,45 @@ requires only minimal service mappings
 
 \begin_deeper
 \begin_layout Itemize
-no predefined schema → minimal effort in defining services
+no predefined schema
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+complete services structure is figured out in runtime
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-complete services structure is figured out in runtime
+minimal effort in defining services
 \end_layout
 
 \end_deeper
 \begin_layout Paragraph
 
 \series bold
-Query language
+Queries
 \end_layout
 
 \begin_layout Standard
-must specify an entity to be retrieved and filtering criteria (as input
- to services).
- Optionally, the results could be 'piped' for further filtering, sorting
- or aggregation (e.g.
- min, avg, count, etc), e.g.: 
+must specify: entity to be retrieved and filtering criteria.
+ Optionally, the results can be further filtered, sorted or aggregated
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+must specify: entity to be retrieved and filtering criteria.
+ Optionally, the results can be 'piped' for further filtering, sorting or
+ aggregation
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

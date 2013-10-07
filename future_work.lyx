@@ -60,72 +60,17 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Paragraph*
 
-\lang english
-\begin_inset Formula 
-\[
-score\_prob=\sum_{i=1}^{|KWQ|}\left({\displaystyle {\displaystyle \ln}\left(score(tag_{i}|kw_{i})\right)}+\sum_{h_{j}\in H}h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula $score(tag_{i}|kw_{i})$
-\end_inset
-
- - likelihood of 
-\begin_inset Formula $kw_{i}$
-\end_inset
-
- to be 
-\begin_inset Formula $tag_{i}$
-\end_inset
-
- (from entry points step)
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- 
-\begin_inset Note Note
+\series bold
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\lang english
-in score_prob 
-\begin_inset Formula $score(tag_{i}=unknown|kw_{i})$
-\end_inset
 
- uses predefined 
-\begin_inset Formula $P(unknown)$
-\end_inset
-
-.
+\backslash
+vspace{-3cm}
 \end_layout
 
 \end_inset
@@ -135,32 +80,89 @@ in score_prob
 
 \begin_layout Itemize
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-\begin_inset Formula $h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})$
-\end_inset
-
- - the score boost returned by heuristic 
-\begin_inset Formula $h_{j}$
-\end_inset
-
- given a tagging so far (often all 
-\begin_inset Formula $i-1$
-\end_inset
-
- tags are not needed).
- 
+\series bold
+advanced autocompletion [photo!]
 \end_layout
 
+\begin_layout Itemize
+improve the ranker
+\end_layout
+
+\begin_layout Itemize
+look into advanced methods of generic performance improvements to the services
+ like 
+\begin_inset Quotes eld
+\end_inset
+
+materialized view with the incremental refresh
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\shape smallcaps
+top-K (semi-)optimal solutions with contextualization?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+(only ideas for now...):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+maybe Ranked (Murty’s) Munkres with Contextualization!?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+this would at least guarantee optimal top-k for with 
+\series bold
+some
+\series default
+ contextualization
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+out of scope, ask for handouts
+\end_layout
+
+\begin_layout Paragraph
+
+\shape smallcaps
+Reflections on the HMM approach:
+\end_layout
+
+\begin_layout Itemize
+what is modelled is not same as seen by user
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+models 
+\begin_inset Formula $kw_{i}\rightarrow t_{j},$
+\end_inset
+
+ while user sees structured queries
+\end_layout
+
+\begin_layout Itemize
+therefore, hard to get automatically collect training data 
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

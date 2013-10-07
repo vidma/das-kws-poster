@@ -61,8 +61,18 @@
 \begin_body
 
 \begin_layout Itemize
+queries are ambiguous
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+return ranked list of structured query suggestions
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Itemize
 keyword queries are ambiguous
@@ -83,7 +93,17 @@ querying services is expensive → rely on metadata
 \end_layout
 
 \begin_layout Itemize
-bootstrap list of allowed values (available only for some fields) 
+bootstrap list of allowed values 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+(available only for some fields) 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -106,7 +126,7 @@ status open
 
 \end_deeper
 \begin_layout Itemize
-no fully predefined schema
+no predefined schema
 \end_layout
 
 \begin_deeper
@@ -115,7 +135,17 @@ bootstrap list of fields in service results through queries
 \end_layout
 
 \begin_layout Itemize
-some field names are unclean (coming directly from XML, JSON responses)
+some field names are unclean → use IDF 
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+(as they come directly from JSON/XML responses)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
