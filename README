@@ -1,0 +1,10 @@
+das-kws-poster
+==============
+
+PDF version: [fancytikzposter.pdf]
+
+Main file is fancytikzposter.tex
+
+other *.tex files are GENERATED from *.lyx (i.e. ./compile_lyx.sh)
+
+based on fancytikzposter template http://www.inf.unibz.it/~ebotoeva/fancytikzposter.html
