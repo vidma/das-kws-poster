@@ -335,15 +335,6 @@ It was developed as an integral part of the CMS data discovery service
   	\vspace{-50pt}
   }
   
-  \plainblock[0]{($(box.south west)-(yshift)+(xshift)+(-17,0)$)}%
-  {8cm}{} %
-  {\newline\vspace{-0cm}
-  	\textbf{More info:}\vspace{0.5cm}
-  	\newline
-    \includegraphics[width=5cm]{images/qrcode.png}
-  	\vspace{-0cm}
-  }  
-  
   \getcurrentrow{note}
   \coordinate (currenty) at ($(currentrow)+(yshift)$);
 
@@ -409,7 +400,16 @@ It was developed as an integral part of the CMS data discovery service
   }
 
 
-  
+
+  \plainblock[0]{($(box.south east)-(yshift)+(-5,0)$)}%
+  {8cm}{} %
+  {\newline\vspace{-0cm}
+  	\textbf{More info:}\vspace{0.5cm}
+  	\newline
+    \includegraphics[width=5cm]{images/qrcode.png}
+  	\vspace{-0cm}
+  }  
+    
 
 
 \end{tikzpicture}
