@@ -241,7 +241,7 @@ vspace{-80pt}
 
 \series bold
 \begin_inset Graphics
-	filename /home/vidma/DAS_paper/figures/DAS_KWS_architecture.pdf
+	filename figures/kws_architecture.pdf
 	lyxscale 40
 	width 99text%
 

@@ -104,7 +104,7 @@ we return a ranked list of query suggestions
 
 \end_inset
 
-no direct access to the data - querying services is 
+querying services is 
 \begin_inset Quotes eld
 \end_inset
 
@@ -112,12 +112,7 @@ expensive
 \begin_inset Quotes erd
 \end_inset
 
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-rely on metadata
+ → rely on metadata
 \end_layout
 
 \begin_deeper
@@ -153,7 +148,6 @@ status open
 
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Itemize
 no predefined schema
