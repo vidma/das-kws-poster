@@ -68,7 +68,7 @@ status open
 
 
 \backslash
-vspace{-1cm}
+vspace{-0.5cm}
 \end_layout
 
 \end_inset
@@ -76,15 +76,26 @@ vspace{-1cm}
 
 \series bold
 \shape smallcaps
-for simplicity it is based on exhaustive search:
+Use exhaustive search:
 \end_layout
 
 \begin_layout Itemize
-allows finding optimal solutions
+allows easily finding optimal solutions
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+, vs.
+ complex methods that'd require post-pruning
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-easy to filter out many 
+early pruning - filter out many 
 \begin_inset Quotes eld
 \end_inset
 
@@ -97,7 +108,8 @@ invalid
 status open
 
 \begin_layout Plain Layout
-that are not yet supported by services
+e.g.
+ not yet supported by services
 \end_layout
 
 \end_inset
@@ -166,7 +178,7 @@ status open
 
 %
 \backslash
-vspace{-3cm}
+vspace{0.5cm}
 \end_layout
 
 \end_inset
@@ -301,6 +313,19 @@ status open
 \begin_layout Plain Layout
 
 }
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-1.5cm}
 \end_layout
 
 \end_inset

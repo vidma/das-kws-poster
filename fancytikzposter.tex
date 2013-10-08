@@ -88,7 +88,6 @@
 
 
 
-
 %%% size of the document and the margins
 %% A0
 % \usepackage[margin=\margin cm, paperwidth=118.9cm, paperheight=84.1cm]{geometry} 
@@ -145,8 +144,9 @@
 
 \usepackage{color}
 \definecolor{note_fontcolor}{rgb}{0.5, 0.5, 0.5}
+\definecolor{grey_dark}{rgb}{0.7, 0.7, 0.7}
+%\definecolor{grey_dark}{rgb}{0.6, 0.6, 0.7}
 \definecolor{grey_light}{rgb}{0.9, 0.9, 0.9}
-
 
 \newenvironment{lyxgreyedout}
   {\textcolor{note_fontcolor}\bgroup\ignorespaces}
@@ -358,11 +358,17 @@ It was developed as an integral part of the CMS data discovery service
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  
+
+  \setinnerblocktitlefillcolor{grey_dark}
+
   \blocknode%
   {The ranker}%
   {
 	\input{./formulas}
   }
+  % set it back to what it was
+  %\setinnerblocktitlefillcolor{colorthree}
 
 
 
@@ -394,7 +400,7 @@ It was developed as an integral part of the CMS data discovery service
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode {Future work \& Interesting problems}%
+  \blocknode {Future work}%
   {
     \input{future_work}
   }
