@@ -124,7 +124,7 @@ to obtain final score
 
 \begin_deeper
 \begin_layout Itemize
-consider various permutations of 
+consider various permutations 
 \begin_inset Quotes eld
 \end_inset
 
@@ -154,6 +154,10 @@ prune out not possible
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+present structured query suggestions ranked accordingly
+\end_layout
+
 \end_inset
 
 

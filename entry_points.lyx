@@ -166,7 +166,7 @@ Output fields (multi-word):
 \begin_inset space ~
 \end_inset
 
-'number of events>1000' ->
+'number of events>1000' -> 0.93, predicate: dataset.nevents>1000
 \begin_inset Newline newline
 \end_inset
 
@@ -178,51 +178,7 @@ Output fields (multi-word):
 \begin_inset space ~
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
- 0.93, pred: dataset.nevents>1000
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
- 0.93, pred: file.nevents>1000
+'number of events>1000' -> 0.93, predicate: file.nevents>1000
 \size scriptsize
 
 \begin_inset Note Note

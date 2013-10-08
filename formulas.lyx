@@ -138,7 +138,7 @@ our schema is quite small
 \emph on
 cython
 \emph default
--based implementation is already quite fast
+-based implementation is quite fast
 \color red
  
 \begin_inset Note Greyedout
@@ -148,7 +148,15 @@ status open
 
 \size small
 \color none
-(bound by MongoDB/IR engine to retrieve entry points)
+(bound by 
+\emph on
+MongoDB
+\emph default
+ and 
+\emph on
+Who
+\emph default
+osh IR engines to get entry points)
 \end_layout
 
 \end_inset
@@ -242,6 +250,13 @@ status open
 
 \size footnotesize
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\lang english
 \begin_inset Foot
 status open
 
@@ -262,6 +277,11 @@ status open
 \end_inset
 
  
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

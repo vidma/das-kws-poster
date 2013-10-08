@@ -218,7 +218,7 @@
   %\textbf{Background:} 
   Virtual data integration aims at providing a coherent interface for querying heterogeneous data sources (e.g. web services, proprietary systems) with minimum upfront effort in integration. %
   %This work explores various aspects of its usability.
-Data is usually accessed through a structured queries, such as SQL, requiring to learn the language and to get acquainted with data organization, which may pose problems even to proficient users.
+Data is usually accessed through structured queries, such as SQL, requiring to learn the language and to get acquainted with data organization, which may pose problems even to proficient users.
 % thus negatively impacting the system’s usability.%
 
 %\note{, given a keyword query,}
@@ -403,7 +403,8 @@ It was developed as an integral part of the CMS data discovery service
   %% the coordinate (currenty) is used in the default placing of the next blocknode
   %\getcurrentrow{note}
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)$);
+  
+  \coordinate (currenty) at ($(currentrow)-(0, 1.5)+(xshift)$);
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
@@ -416,12 +417,12 @@ It was developed as an integral part of the CMS data discovery service
     }
 
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)$);
+  \coordinate (currenty) at ($(currentrow)-(0, 1.5)+(xshift)$);
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
 
-  \calloutblock[0]{($(kws_north)+(14,-15.5)$)}%
+  \calloutblock[0]{($(kws_north)+(15.5,-14.5)$)}%
   		{($(currenty)-(7.5,0)$)}{25} %
   {%    
 \vspace{-0.5cm}
@@ -432,7 +433,7 @@ It was developed as an integral part of the CMS data discovery service
     }
 
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(0, 0)+(xshift)$);
+  \coordinate (currenty) at ($(currentrow)-(0, 1)+(xshift)$);
 
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%

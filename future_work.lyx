@@ -132,7 +132,7 @@ innerblock{Open problems
 \begin_layout Paragraph
 
 \shape smallcaps
-top-k (semi-)optimal solutions with Contextualization?
+top-k (semi-)optimal assignments with Contextualization?
 \end_layout
 
 \begin_layout Standard
@@ -151,8 +151,8 @@ status open
 \begin_layout Itemize
 
 \color red
-can we adapt Murty's/Munkres’s algs.
- for top-k list of assignments with contextualizations?
+could Murty's/Munkres’s algs.
+ be adapted for top-k assignments with contextualizations?
 \end_layout
 
 \begin_deeper
