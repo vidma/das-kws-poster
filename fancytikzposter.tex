@@ -145,7 +145,7 @@
 
 \usepackage{color}
 \definecolor{note_fontcolor}{rgb}{0.5, 0.5, 0.5}
-\definecolor{grey_light}{rgb}{0.95, 0.95, 0.95}
+\definecolor{grey_light}{rgb}{0.9, 0.9, 0.9}
 
 
 \newenvironment{lyxgreyedout}
@@ -179,7 +179,7 @@
 \begin{tikzpicture}
   \initializesizeandshifts
   % \setxshift{15}
-  % \setyshift{2}
+  \setyshift{1.5}
 
 
   %% the title block, #1 - shift, the default value is (0,0), #2 - width, #3 - scale
@@ -315,15 +315,22 @@ It was developed as an integral part of the CMS data discovery service
   %% obtain the y-coordinate of the previous node using macro
   %% \getcurrentrow{note}, where note is the alias of the callout node, and
   %% then specify the coordinate of the next node using coordinate (currentrow)
-  \getcurrentrow{box}
+  \getcurrentrow{box} 
+  \coordinate (kws_north) at ($(box.north)$);
+  \coordinate (kws_overv) at ($(box.south east)$);  
+
+
+  
   %% a plain block
   %% #1 - rotate angle (optional), #2 - where, #3 - width, #4 - title, #5 - text
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \setplainblockfillcolor{white}
-  \plainblock[4]{($(box.south east)-(yshift)+(-14, 3.5)$)}%
-  {27}{Finally, users see this} %
+  \calloutblock[0]{($(kws_overv)+(-4.9,2.7)$)}%
+  		{($(box.south east)-(yshift)+(-14, 0)$)} %
+  {27} %
   {
-  \newline
+  %\textbf{\color{blue}Result presentation:}
+  %\newline
   	\includegraphics[width=1.0\textwidth]{ui_result.png}
   	\vspace{-50pt}
   }
@@ -338,8 +345,7 @@ It was developed as an integral part of the CMS data discovery service
   }  
   
   \getcurrentrow{note}
-  \coordinate (kws_overv) at ($(box.south east)$);  
-  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)+(0, 1)$);
+  \coordinate (currenty) at ($(currentrow)+(yshift)$);
 
   %% the coordinate (currenty) is used in the default placing of the next blocknode
  %\getcurrentrow{note}
@@ -369,59 +375,41 @@ It was developed as an integral part of the CMS data discovery service
 
 
 
+  
+
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode {Related works}%
   {
   	\input{state_of_art}
   }
   
-  % Reflections on existing approaches
-  % Munkres - how to guarantee top-K with (approx?) contextualization
-  % HMM - how to know...
+  \getcurrentrow{box}   
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+
   
+  \setplainblockfillcolor{grey_light}
+  \calloutblock[0]{($(kws_north)+(6,-2.2)$)}%
+  		{($(box.south)-(yshift)-(4,0)$)}{30} %
+  {%    
+    \vspace{0.3cm}
+    \textbf{Autocompletion to ease typing queries (prototype)}\newline
+     \includegraphics[width=27cm]{images/autocompl.png}
+    }
+  %% the coordinate (currenty) is used in the default placing of the next blocknode
+  %\getcurrentrow{note}
+  \getcurrentrow{note}
+  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)$);
 
-
-
-   %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
-  %% (if column number is 3)
-  \startthirdcolumn
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode {Future work \& Interesting problems}%
   {
     \input{future_work}
   }
+
+
   
-  
-  \setplainblockfillcolor{grey_light}
-  \calloutblock[0]{($(kws_overv)+(-2,3)$)}%
-  		{($(kws_overv)+(20, -0)$)}{40} %
-  {%    
-    \vspace{0.3cm}
-    \textbf{Autocompletion to ease typing (keyword) queries (prototype)}\newline
-     \includegraphics[width=35cm]{images/autocompl.png}
-    }
-  %% the coordinate (currenty) is used in the default placing of the next blocknode
-  %\getcurrentrow{note}
-  \getcurrentrow{note}
-  %\coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,2)$);
-  \coordinate (currenty) at ($(currentrow)-(yshift)-(xshift)+(0,0)$);
-
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  %\blocknode {Conclusions}%
-  %{
-  %  \begin{itemize}
-  %  \item keyword search over data services still lacking attention (vs. relational data-bases)
-%	\item with proper UI it may guide both beginner and advanced users    
-%    \item summing log-likelihoods is better than plain scores (cf. Keymantic)
-
-  %  \end{itemize}
-  %}
-  %\blocknode {References}%
-  %{
-  %  KEYMANTIC
-  %}
 
 
 \end{tikzpicture}

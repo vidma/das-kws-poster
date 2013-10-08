@@ -77,15 +77,19 @@ vspace{-1cm}
 \end_layout
 
 \begin_layout Itemize
-queries are ambiguous
-\end_layout
+keyword queries are ambiguous → 
+\begin_inset Note Greyedout
+status open
 
-\begin_deeper
-\begin_layout Itemize
+\begin_layout Plain Layout
 return ranked list of structured query suggestions
 \end_layout
 
-\end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 \begin_inset Note Note
 status collapsed
@@ -100,14 +104,23 @@ we return a ranked list of query suggestions
 
 \end_inset
 
-no direct access to the data
+no direct access to the data - querying services is 
+\begin_inset Quotes eld
+\end_inset
+
+expensive
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-querying services is expensive → rely on metadata
+rely on metadata
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 bootstrap list of allowed values 
 \begin_inset Note Greyedout
@@ -140,6 +153,7 @@ status open
 
 \end_layout
 
+\end_deeper
 \end_deeper
 \begin_layout Itemize
 no predefined schema
