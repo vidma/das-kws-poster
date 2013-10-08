@@ -136,7 +136,7 @@ top-k (semi-)optimal solutions with Contextualization?
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Greyedout
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
@@ -151,7 +151,8 @@ status open
 \begin_layout Itemize
 
 \color red
-maybe Ranked (Murty’s) Munkres with Contextualization!?
+can we adapt Murty's/Munkres’s algs.
+ for top-k list of assignments with contextualizations?
 \end_layout
 
 \begin_deeper
@@ -163,11 +164,11 @@ some
  contextualization
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
 out of scope, ask for handouts/chat
 \end_layout
 
+\end_deeper
 \begin_layout Paragraph
 
 \shape smallcaps
