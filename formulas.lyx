@@ -271,7 +271,7 @@ status open
 \begin_inset Formula $h_{j}(tag_{i}|kw_{i};tag_{i-1,..,1})$
 \end_inset
 
- - the score boost returned by heuristic 
+ - the score boost returned by contextualization rule 
 \begin_inset Formula $h_{j}$
 \end_inset
 

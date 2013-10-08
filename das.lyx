@@ -231,7 +231,13 @@ eliminate inconsistencies in the responses:
 \begin_layout Itemize
 
 \size small
-entity naming; data formats (XML, JSON)
+entity naming
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+data formats (XML, JSON)
 \end_layout
 
 \end_deeper
@@ -272,7 +278,7 @@ status open
 
 
 \backslash
-vspace{0.7cm}
+vspace{-0.7cm}
 \end_layout
 
 \end_inset

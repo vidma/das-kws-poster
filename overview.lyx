@@ -77,13 +77,13 @@ height "1in"
 height_special "totalheight"
 status open
 
-\begin_layout Itemize
-tokenizer:
+\begin_layout Enumerate
+tokenize the query
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-clean up the query
+clean up
 \end_layout
 
 \begin_layout Itemize
@@ -91,7 +91,7 @@ identify patterns
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
+\begin_layout Enumerate
 identify and score 
 \begin_inset Quotes eld
 \end_inset
@@ -104,77 +104,32 @@ entry points
 \begin_inset Quotes erd
 \end_inset
 
- with
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-string matching 
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-[for entity names]
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-IR (IDF-based) 
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
- [output fieldnames]
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-list of known values
-\end_layout
-
-\begin_layout Itemize
-regular expressions on allowed values
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(use patterns from tokenizer...)
-\end_layout
-
-\end_inset
-
-
+score matchings of individual keywords into domain terms with techniques
+ of entity matching and information retrieval
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
+\begin_layout Enumerate
 combine
 \emph on
- entry points
+ entry points 
+\emph default
+to obtain final score
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-consider various 
-\emph on
-entry point
-\emph default
- permutations 
-\begin_inset Note Greyedout
-status open
+consider various permutations of 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
- (keyword labelings)
-\end_layout
-
+keyword labellings
+\begin_inset Quotes erd
 \end_inset
 
 

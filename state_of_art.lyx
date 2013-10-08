@@ -79,7 +79,15 @@ vspace{-3cm}
 \end_layout
 
 \begin_layout Itemize
-Keymantic (the closest work)
+The 
+\begin_inset Quotes eld
+\end_inset
+
+Keymantic
+\begin_inset Quotes erd
+\end_inset
+
+ - keyword search over databases or data services (the closest work)
 \series bold
 
 \begin_inset Note Note
@@ -166,10 +174,20 @@ with contextualizations:
 \begin_deeper
 \begin_layout Itemize
 maximize total sum of weights
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+, assigning exactly 1 tag to each 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-uses heuristics to account for keyword interdependencies (contextualization)
+uses contextualization rules to account for keyword interdependencies
 \end_layout
 
 \begin_deeper
@@ -177,7 +195,7 @@ uses heuristics to account for keyword interdependencies (contextualization)
 
 \size small
 e.g.
- <table_name> <attribute>; <attribute> <its value>; 
+ <table_name> <its attribute>; <attribute> <its value>; 
 \end_layout
 
 \begin_layout Itemize
@@ -274,7 +292,15 @@ interpret generated mappings as SQL queries
 
 \end_deeper
 \begin_layout Itemize
-KEYRY - uses HMM 
+The 
+\begin_inset Quotes eld
+\end_inset
+
+KEYRY
+\begin_inset Quotes erd
+\end_inset
+
+ - uses HMM 
 \begin_inset Note Greyedout
 status open
 

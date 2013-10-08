@@ -319,7 +319,14 @@ It was developed as an integral part of the CMS data discovery service
   \coordinate (kws_north) at ($(box.north)$);
   \coordinate (kws_overv) at ($(box.south east)$);  
 
-
+  \plainblock[0]{($(box.south west)-(yshift)-(-3,0)$)}%
+  {8cm}{} %
+  {\newline\vspace{-0cm}
+  	\textbf{More info:}\vspace{0.5cm}
+  	\newline
+    \includegraphics[width=5cm]{images/qrcode.png}
+  	\vspace{-0cm}
+  }  
   
   %% a plain block
   %% #1 - rotate angle (optional), #2 - where, #3 - width, #4 - title, #5 - text
@@ -386,7 +393,7 @@ It was developed as an integral part of the CMS data discovery service
 
   
   \setplainblockfillcolor{grey_light}
-  \calloutblock[0]{($(kws_north)+(6,-2.2)$)}%
+  \calloutblock[0]{($(kws_north)+(14,-2.0)$)}%
   		{($(box.south)-(yshift)-(5,0)$)}{30} %
   {%    
     \vspace{0.3cm}
@@ -398,6 +405,35 @@ It was developed as an integral part of the CMS data discovery service
   \getcurrentrow{note}
   \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)$);
 
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+
+
+  \calloutblock[0]{($(kws_north)+(14,-5.5)$)}%
+  		{($(currenty)-(7.5,0)$)}{25} %
+  {%    
+    %\vspace{-0.3cm}
+    \textbf{Tokenized query:} 'relval', 'number', 'of', 'events>100'
+    }
+
+  \getcurrentrow{note}
+  \coordinate (currenty) at ($(currentrow)-(yshift)+(xshift)$);
+
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+
+
+  \calloutblock[0]{($(kws_north)+(14,-15.5)$)}%
+  		{($(currenty)-(7.5,0)$)}{25} %
+  {%    
+\vspace{-0.5cm}
+    \textbf{Entry points:}\newline
+    \input{./entry_points}
+        \vspace{-0.3cm}
+
+    }
+
+  \getcurrentrow{note}
+  \coordinate (currenty) at ($(currentrow)-(0, 0)+(xshift)$);
+
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode {Future work}%
@@ -407,15 +443,15 @@ It was developed as an integral part of the CMS data discovery service
 
 
 
-  \plainblock[0]{($(box.south east)-(yshift)+(-5,0)$)}%
-  {8cm}{} %
-  {\newline\vspace{-0cm}
-  	\textbf{More info:}\vspace{0.5cm}
-  	\newline
-    \includegraphics[width=5cm]{images/qrcode.png}
-  	\vspace{-0cm}
-  }  
-    
+%  \plainblock[0]{($(box.south east)-(yshift)+(-5,0)$)}%
+%  {8cm}{} %
+%  {\newline\vspace{-0cm}
+%  	\textbf{More info:}\vspace{0.5cm}
+%  	\newline
+%    \includegraphics[width=5cm]{images/qrcode.png}
+%  	\vspace{-0cm}
+%  }  
+%    
 
 
 \end{tikzpicture}
