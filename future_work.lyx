@@ -149,15 +149,13 @@ status open
 \end_layout
 
 \begin_layout Itemize
-
-\color red
-could Murty's/Munkres’s algs.
- be adapted for top-k assignments with contextualizations?
+could Murty's/Munkres’s algorithms which list top-k optimal assignments
+ be adapted to work with contextualizations?
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-this would at least guarantee optimal top-k for with 
+this shall at least guarantee optimal top-k for with 
 \series bold
 some
 \series default

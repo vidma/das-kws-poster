@@ -129,7 +129,7 @@
    Vilnius University, Lithuania\\
    %(at CMS Experiment, CERN)\\
   \texttt{vidmantas.zemleris@cern.ch}\\
-  for the benefit of CMS Collaboration
+  on behalf of CMS Collaboration
   \And
   Valentin Kuznetsov\\
   Cornell University, USA\\
@@ -145,7 +145,7 @@
 \usepackage{color}
 \definecolor{note_fontcolor}{rgb}{0.5, 0.5, 0.5}
 \definecolor{grey_dark}{rgb}{0.7, 0.7, 0.7}
-%\definecolor{grey_dark}{rgb}{0.6, 0.6, 0.7}
+\definecolor{grey_very_dark}{rgb}{0.3, 0.3, 0.3}
 \definecolor{grey_light}{rgb}{0.9, 0.9, 0.9}
 
 \newenvironment{lyxgreyedout}
@@ -319,20 +319,29 @@ It was developed as an integral part of the CMS data discovery service
   \coordinate (kws_north) at ($(box.north)$);
   \coordinate (kws_overv) at ($(box.south east)$);  
 
-  \plainblock[0]{($(box.south west)-(yshift)-(-3,0)$)}%
-  {8cm}{} %
-  {\newline\vspace{-0cm}
+  \setplainblockfillcolor{white}
+  \setplainblocktitlefillcolor{grey_dark}
+  \renewcommand{\plainblocktemplate}{3}
+  
+  \plainblock[0]{($(box.south west)-(yshift)+(3,0)$)}%
+  {6.5cm}{} %
+  {\newline\vspace{-1.8cm}\newline
   	\textbf{More info:}\vspace{0.5cm}
   	\newline
     \includegraphics[width=5cm]{images/qrcode.png}
-  	\vspace{-0cm}
+  	\vspace{-1.5cm}
   }  
+  % restore plain block template
+  \renewcommand{\plainblocktemplate}{2}
+  
   
   %% a plain block
   %% #1 - rotate angle (optional), #2 - where, #3 - width, #4 - title, #5 - text
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \setplainblockfillcolor{white}
-  \calloutblock[0]{($(kws_overv)+(-4.9,2.7)$)}%
+  \setplainblockfillcolor{grey_light}
+  
+  \calloutblock[0]{($(kws_overv)+(-4.9,2.3)$)}%
   		{($(box.south east)-(yshift)+(-14, 0)$)} %
   {27} %
   {
@@ -391,14 +400,20 @@ It was developed as an integral part of the CMS data discovery service
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
-  
+  \renewcommand{\plainblocktemplate}{3}
+
   \setplainblockfillcolor{grey_light}
-  \calloutblock[0]{($(kws_north)+(14,-2.0)$)}%
+  % this is also for arrow borders
+  %\setplainblocktitlefillcolor{grey_dark}
+  
+  \calloutblock[0]{($(kws_north)+(14,-1.0)$)}%
   		{($(box.south)-(yshift)-(5,0)$)}{30} %
   {%    
     \vspace{0.3cm}
     \textbf{Autocompletion to ease typing the queries (prototype)}\newline
-     \includegraphics[width=27cm]{images/autocompl.png}
+     \includegraphics[width=28cm]{images/autocompl.png}
+         \vspace{-1cm}
+
     }
   %% the coordinate (currenty) is used in the default placing of the next blocknode
   %\getcurrentrow{note}
@@ -409,20 +424,23 @@ It was developed as an integral part of the CMS data discovery service
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
 
-  \calloutblock[0]{($(kws_north)+(14,-5.5)$)}%
-  		{($(currenty)-(7.5,0)$)}{25} %
+  \calloutblock[0]{($(kws_north)+(14,-4.5)$)}%
+  		{($(currenty)-(7.5,-0.5)$)}{25} %
   {%    
     %\vspace{-0.3cm}
+    \newline
     \textbf{Tokenized query:} 'relval', 'number', 'of', 'events>100'
+    \newline%
+    \vspace{0.2cm}
     }
 
   \getcurrentrow{note}
-  \coordinate (currenty) at ($(currentrow)-(0, 1.5)+(xshift)$);
+  \coordinate (currenty) at ($(currentrow)-(0, 0.5)+(xshift)$);
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
 
 
-  \calloutblock[0]{($(kws_north)+(15.5,-14.5)$)}%
+  \calloutblock[0]{($(kws_north)+(15.5,-13.5)$)}%
   		{($(currenty)-(7.5,0)$)}{25} %
   {%    
 \vspace{-0.5cm}
