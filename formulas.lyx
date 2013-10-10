@@ -148,7 +148,7 @@ status open
 
 \size small
 \color none
-(bound by 
+(mostly bound by 
 \emph on
 MongoDB
 \emph default
@@ -156,7 +156,7 @@ MongoDB
 \emph on
 Who
 \emph default
-osh IR engines to get entry points)
+osh IR to get entry points)
 \end_layout
 
 \end_inset

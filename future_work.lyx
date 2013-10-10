@@ -132,7 +132,7 @@ innerblock{Open problems
 \begin_layout Paragraph
 
 \shape smallcaps
-top-k (semi-)optimal assignments with Contextualization?
+top-k (semi-)optimal bipartite assignments with Contextualization?
 \end_layout
 
 \begin_layout Standard
@@ -155,7 +155,7 @@ could Murty's/Munkres’s algorithms which list top-k optimal assignments
 
 \begin_deeper
 \begin_layout Itemize
-this shall at least guarantee optimal top-k for with 
+if so, this shall at least guarantee optimal top-k for with 
 \series bold
 some
 \series default
