@@ -1,0 +1,831 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+\usepackage[cm]{fullpage}
+%\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{algpseudocode}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Solving the bipartite assignment problem (with contextualizations)
+\end_layout
+
+\begin_layout Paragraph
+
+\series bold
+Min-cost bipartite assignment:
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+given N jobs and M people and a 
+\begin_inset Formula $NxM$
+\end_inset
+
+ matrix of costs of perform these jobs.
+ Each job has to be assigned to 
+\emph on
+one
+\emph default
+ of M people, while one person can perform maximum one job.
+ Assume M<=N (or matrix can be rotated).
+ Another interpretation can be assigning each of 
+\begin_inset Formula $N$
+\end_inset
+
+ keywords a tag from 
+\begin_inset Formula $M$
+\end_inset
+
+ tags available (and we have a likelihood matrix).
+ This well-known problem is efficiently solved by Munkres/Hungarian algorithm
+ in 
+\size footnotesize
+
+\begin_inset Formula $\Theta(N^{2}M)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+
+\series bold
+Contextualization
+\end_layout
+
+\begin_layout Standard
+adds additional interdependencies between solution costs, e.g.
+ the person A would agree to perform the job X cheaper, if person be is
+ assigned job Y (e.g.
+ as he wants to be nearby).
+ In the context of keyword search: the 
+\begin_inset Formula $tag_{j}$
+\end_inset
+
+ of a keyword 
+\begin_inset Formula $kw_{i}$
+\end_inset
+
+ is more likely if it's nearby a related 
+\begin_inset Formula $tag_{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Comparison of existing approaches
+\end_layout
+
+\begin_layout Standard
+
+\size small
+Notation: N keywords; M is total number of possible tags; 
+\begin_inset Formula $\bar{M}$
+\end_inset
+
+is average # of possible tags
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="37text%">
+<column alignment="center" valignment="top" width="30text%">
+<column alignment="center" valignment="top" width="30text%">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Method
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Advantages
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Disadvantages
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Exhaustive search
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+easy pruning and contextualization
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+optimal answers
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+slow, 
+\begin_inset Formula $O(\bar{M}^{N})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Munkres
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "munkres_cern_rect"
+
+\end_inset
+
+ (rectangular version)
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+gets the best solution to assignment problem in 
+\begin_inset Formula $\Theta(N^{2}M)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+quite fast
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+no contextualization
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+only one best result
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Keymantic
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "keymantic_kws_metadata_bergamaschi2011"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\color red
+recursively evaluate all mappings, pruning on current cost, do some unreliable
+ magic inside Munkres algorithm to get contextualization
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+quite fast
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+some contextualization
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+some of top-k answers
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+only approximate - return only some of top-k answers
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+no guarantee all conceptualizations to be explored if not exploring ALL
+ solution space (i.e.
+ not real top-K)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Murty
+\begin_inset CommandInset citation
+LatexCommand cite
+key "murty_ranked"
+
+\end_inset
+
+ + Munkres
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+to get each additional result, call Munkres to solve 
+\begin_inset Formula $n-1$
+\end_inset
+
+ smaller assignments of sizes 
+\begin_inset Formula $2..n-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Can be greatly optimized through heuristics
+\begin_inset CommandInset citation
+LatexCommand cite
+key "murty_optimizing"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+: ordering sub-assignments to solve smaller or more likely first...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\emph on
+top-k optimal
+\emph default
+ solutions
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+quite fast
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+no early pruning (an augmenting path may change much...)
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+no contextualization (or at least hard to get)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+HMM
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bergamaschi2011hidden"
+
+\end_inset
+
+ + List Viterbi
+\begin_inset CommandInset citation
+LatexCommand cite
+key "list_viterbi_1994"
+
+\end_inset
+
+ 
+\series default
+or some related conditional models such as CRF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+optimal top-k results
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+allows some contextualization of l
+\emph on
+imited length
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+quite fast
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+no pruning
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+same tag may get selected multiple times
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Proposed by us 
+\series default
+(if few dependencies)
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1) enumerate over all contextualization possibilities
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2) use Murty to get top-k results over matrix with contextualizations applied
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3) reuse older sub-solutions by using the 
+\begin_inset Quotes eld
+\end_inset
+
+Dynamic Munkres
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "munkres_dynamic"
+
+\end_inset
+
+, so each modified row/column costs 
+\begin_inset Formula $\Theta(NM)$
+\end_inset
+
+; each modification can be reused if exploring them in depth-first fashion.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+top-k optimal results
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+fast
+\series default
+ if # contextualizations is small
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+intractable/exponential for complex contextualizations
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+comparison of different methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The proposed algorithm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Procedure{Matching}{$M, ctx, k$}
+\backslash
+Comment{M is cost matrix; ctx - contextualizations} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+State $sol0
+\backslash
+gets Munkres(M)$ 
+\backslash
+Comment{solve without contextualizations} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+While{$c$ IN $permute(ctx)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+State $M_ = M with c applied$
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+State $sol
+\backslash
+gets = Murty(M_, k)$
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+State 
+\backslash
+textbf{yield} $sol$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndWhile
+\backslash
+label{euclidendwhile} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+EndProcedure 
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+top-K bipartite matchings (with low number of contextualizations)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Can we further improve over this?
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "refs"
+options "plain"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
