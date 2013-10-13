@@ -1,9 +1,9 @@
 das-kws-poster
 ==============
 
-PDF version: [fancytikzposter.pdf]
+PDF version: [poster.pdf]
 
-Main file is fancytikzposter.tex
+Main file is poster.tex
 
 other *.tex files are GENERATED from *.lyx (i.e. ./compile_lyx.sh)
 
