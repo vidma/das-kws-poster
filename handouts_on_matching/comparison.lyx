@@ -71,7 +71,7 @@
 \begin_body
 
 \begin_layout Title
-Solving the bipartite assignment problem (with contextualizations)
+Solving weighted bipartite assignment problem (with contextualizations)
 \end_layout
 
 \begin_layout Paragraph
@@ -336,8 +336,9 @@ key "keymantic_kws_metadata_bergamaschi2011"
 
 \size footnotesize
 \color red
-recursively evaluate all mappings, pruning on current cost, do some unreliable
- magic inside Munkres algorithm to get contextualization
+recursively evaluate all mappings, pruning on current cost, do the contextualiza
+tion inside Munkres algorithm itself - unproven and unlikely to be always
+ correct
 \end_layout
 
 \end_inset
@@ -371,7 +372,7 @@ some of top-k answers
 \begin_layout Plain Layout
 
 \size footnotesize
-only approximate - return only some of top-k answers
+only approximate - not all of top-k answers
 \end_layout
 
 \begin_layout Plain Layout
@@ -665,11 +666,15 @@ comparison of different methods
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Section
 The proposed algorithm
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float algorithm
 placement H
 wide false
@@ -783,13 +788,14 @@ top-K bipartite matchings (with low number of contextualizations)
 
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
 
+Can we further improve over this?
 \end_layout
 
 \end_inset
 
-Can we further improve over this?
+
 \end_layout
 
 \begin_layout Standard
