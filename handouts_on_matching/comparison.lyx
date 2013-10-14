@@ -274,7 +274,7 @@ key "munkres_cern_rect"
 \begin_layout Plain Layout
 
 \size footnotesize
-gets the best solution to assignment problem in 
+best solution to assignment problem in 
 \begin_inset Formula $\Theta(N^{2}M)$
 \end_inset
 
@@ -336,9 +336,22 @@ key "keymantic_kws_metadata_bergamaschi2011"
 
 \size footnotesize
 \color red
-recursively evaluate all mappings, pruning on current cost, do the contextualiza
-tion inside Munkres algorithm itself - unproven and unlikely to be always
- correct
+recursively evaluate all mappings
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\color red
+solving multiple matchings with Munkres (modifying the matrices (not) to
+ choose specific matches)
+\end_layout
+
+\end_inset
+
+ pruning on the cost so far.
+ do contextualization inside Munkres
 \end_layout
 
 \end_inset
@@ -372,7 +385,7 @@ some of top-k answers
 \begin_layout Plain Layout
 
 \size footnotesize
-only approximate - not all of top-k answers
+approximate - not all of top-k answers
 \end_layout
 
 \begin_layout Plain Layout
@@ -381,6 +394,13 @@ only approximate - not all of top-k answers
 no guarantee all conceptualizations to be explored if not exploring ALL
  solution space (i.e.
  not real top-K)
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\color red
+seems hard to prove 100% correctness
 \end_layout
 
 \end_inset
@@ -395,12 +415,16 @@ no guarantee all conceptualizations to be explored if not exploring ALL
 \series bold
 \size footnotesize
 Murty
+\series default
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "murty_ranked"
 
 \end_inset
 
+
+\series bold
  + Munkres
 \end_layout
 
@@ -421,7 +445,7 @@ to get each additional result, call Munkres to solve
 \begin_layout Plain Layout
 
 \size footnotesize
-Can be greatly optimized through heuristics
+expected runtime improved through heuristics
 \begin_inset CommandInset citation
 LatexCommand cite
 key "murty_optimizing"
@@ -490,22 +514,49 @@ no contextualization (or at least hard to get)
 \series bold
 \size footnotesize
 HMM
+\series default
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bergamaschi2011hidden"
 
 \end_inset
 
+
+\series bold
  + List Viterbi
+\series default
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "list_viterbi_1994"
 
 \end_inset
 
+
+\series bold
  
 \series default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
 or some related conditional models such as CRF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+can start with estimated HMM params: transition probs from contextualizations,
+ output probs from cost matrix
 \end_layout
 
 \end_inset
