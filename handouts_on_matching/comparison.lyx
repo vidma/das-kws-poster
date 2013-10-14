@@ -73,18 +73,21 @@
 \begin_body
 
 \begin_layout Title
-Solving weighted bipartite matching problem (with contextualizations)
+Solving the weighted bipartite matching problem (with contextualizations)
 \end_layout
 
-\begin_layout Paragraph
-
-\series bold
-Min-cost bipartite matching:
-\series default
- 
+\begin_layout Author
+Vidmantas Zemleris
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+\emph on
+Min-cost bipartite matching:
+\emph default
+ 
+\series default
 given N jobs and M people and a 
 \begin_inset Formula $NxM$
 \end_inset
@@ -115,24 +118,19 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
-Munkres algorithm transforms the problem into 
+\emph on
+Munkres
+\emph default
+ splits the assignment problem into easier ones: 1) maintaining a set of
+ constraints that restrict the currently allowed matches (edges) to be cheap
+ enough, and 2) solving 
 \begin_inset Formula $N$
 \end_inset
 
- smaller ones: maintaining the 
-\begin_inset Quotes eld
-\end_inset
-
-dual
-\begin_inset Quotes erd
-\end_inset
-
- problem to restrict the currently allowed matches (edges) to be cheap enough,
- it solves multiple unweighted bipartite assignments: starting with an empty
- matching, find an augmenting path to increase the size of matching - new
- edges are selected or existing deselected; if no augmenting path exist,
- loosen the constraint on weights.
+ unweighted bipartite assignments: starting with an empty matching, find
+ an augmenting path to increase the size of matching - new edges are selected
+ or existing deselected; if no augmenting path exist, loosen the constraints
+ on weights.
 \end_layout
 
 \end_inset
@@ -144,14 +142,14 @@ dual
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
 
 \series bold
+\emph on
 Contextualization
-\end_layout
-
-\begin_layout Standard
-adds additional interdependencies between solution costs, e.g.
+\series medium
+\emph default
+ adds additional interdependencies between solution costs, e.g.
  the person A would agree to perform the job X cheaper, if person be is
  assigned job Y (e.g.
  as he wants to be nearby).
@@ -170,18 +168,33 @@ adds additional interdependencies between solution costs, e.g.
 .
 \end_layout
 
-\begin_layout Section
-Comparison of existing approaches
+\begin_layout Subsection*
+Comparison of known approaches
 \end_layout
 
 \begin_layout Standard
 
 \size small
-Notation: N keywords; M is total number of possible tags; 
+\emph on
+Notation:
+\emph default
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ keywords; 
+\begin_inset Formula $M$
+\end_inset
+
+ is total number of possible tags; 
 \begin_inset Formula $\widetilde{M}$
 \end_inset
 
- is the average # of possible tags
+ is the average # of possible tags; 
+\begin_inset Formula $k$
+\end_inset
+
+ - # of top-k results to return.
 \end_layout
 
 \begin_layout Standard
@@ -196,8 +209,8 @@ status open
 <lyxtabular version="3" rows="7" columns="3">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="42text%">
-<column alignment="center" valignment="top" width="26text%">
-<column alignment="center" valignment="top" width="30text%">
+<column alignment="left" valignment="top" width="26text%">
+<column alignment="left" valignment="top" width="28text%">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -211,7 +224,7 @@ Method
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -223,7 +236,7 @@ Advantages
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -242,37 +255,39 @@ Disadvantages
 
 \begin_layout Plain Layout
 
-\series bold
 \size footnotesize
+\emph on
 Exhaustive search
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 easy pruning and contextualization
 \end_layout
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 optimal answers
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 slow
 \series default
 , 
@@ -311,29 +326,32 @@ key "munkres_cern_rect"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 quite fast
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 no contextualization
 \end_layout
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 only one best result
 \end_layout
 
@@ -357,10 +375,12 @@ key "keymantic_kws_metadata_bergamaschi2011"
 
 \end_inset
 
- - a modified Munkres
+ - Munkres modified for contextualizations
 \end_layout
 
 \begin_layout Plain Layout
+
+\size footnotesize
 recursively evaluate
 \begin_inset ERT
 status open
@@ -376,59 +396,66 @@ tablefootnote{by solving multiple weighted matchings with Munkres (and modifying
 \end_inset
 
  all mappings pruning on the cost.
- 
-\size footnotesize
-\color red
-do contextualization inside Munkres
+ do contextualization inside Munkres
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 quite fast
 \end_layout
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 some contextualization
 \end_layout
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 some of top-k answers
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
-approximate - 
+\size scriptsize
+\SpecialChar \menuseparator
+
 \series bold
-no real top-k
+approximate -
+\series default
+ 
+\series bold
+not global top-k
 \end_layout
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\series bold
+\size scriptsize
+\SpecialChar \menuseparator
+correctness unproven 
+\end_layout
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\SpecialChar \menuseparator
 no guarantee of all contextualizations
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\color red
-seems hard to prove 100% correctness
 \end_layout
 
 \end_inset
@@ -456,7 +483,9 @@ key "murty_ranked"
  + 
 \series default
 \emph on
-Munkres
+Munkres - 
+\emph default
+top-k matchings
 \end_layout
 
 \begin_layout Plain Layout
@@ -471,12 +500,7 @@ to get each additional result, call Munkres to solve
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-expected runtime improved through heuristics
+ Heuristics can greatly improve expected run time
 \begin_inset CommandInset citation
 LatexCommand cite
 key "murty_optimizing"
@@ -498,12 +522,14 @@ status open
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
+
 \emph on
 top-k optimal
 \emph default
@@ -512,29 +538,46 @@ top-k optimal
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 quite fast
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size footnotesize
-no early pruning (an augmenting path may change the matching a lot...)
+\size scriptsize
+\SpecialChar \menuseparator
+no early pruning (partial matching may change a lot)
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+
+\size scriptsize
+\SpecialChar \menuseparator
 
 \series bold
-\size footnotesize
 no contextualization
 \series default
- (or hard to prove similar method as in Keymantic, but provides guaranteed
- top-k with limited contextualization)
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tablefootnote{could do same unproven contextualization within Munkres as
+ in Keymantic; would at least guarantee top-k with limited contextualization}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -571,7 +614,7 @@ key "list_viterbi_1994"
 
 \end_inset
 
-
+ (slightly different model)
 \series bold
  
 \series default
@@ -599,12 +642,14 @@ can start with estimated HMM params: transition probs from contextualizations,
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
+
 \emph on
 top-k optimal
 \emph default
@@ -613,34 +658,39 @@ top-k optimal
 
 \begin_layout Plain Layout
 
-\size footnotesize
-allows some contextualization of l
+\size scriptsize
+\SpecialChar \menuseparator
+contextualization of 
 \emph on
-imited length
+limited length
 \end_layout
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 quite fast
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
+\SpecialChar \menuseparator
 no pruning
 \end_layout
 
 \begin_layout Plain Layout
 
+\size scriptsize
+\SpecialChar \menuseparator
+
 \series bold
-\size footnotesize
-same tag may get selected multiple times
+a tag may get selected many times
 \end_layout
 
 \end_inset
@@ -655,12 +705,11 @@ same tag may get selected multiple times
 \size footnotesize
 \emph on
 Murty + Dynamic Munkres
-\series bold
 \emph default
  
-\series default
+\series bold
 \emph on
-(proposed by us in cases of few dependencies)
+(good if few dependencies)
 \end_layout
 
 \begin_layout Plain Layout
@@ -711,20 +760,24 @@ line
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\size scriptsize
+\SpecialChar \menuseparator
+
 \series bold
-\size footnotesize
 top-k optimal results
 \end_layout
 
 \begin_layout Plain Layout
 
+\size scriptsize
+\SpecialChar \menuseparator
+
 \series bold
-\size footnotesize
 fast
 \series default
  if # contextualizations is small
@@ -732,13 +785,14 @@ fast
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
-intractable/exponential for complex contextualizations
+\size scriptsize
+\SpecialChar \menuseparator
+exponential for complex contextualizations
 \end_layout
 
 \end_inset
@@ -899,6 +953,13 @@ top-K bipartite matchings (with low number of contextualizations)
 Can we further improve over this?
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
 \end_inset
 
 
