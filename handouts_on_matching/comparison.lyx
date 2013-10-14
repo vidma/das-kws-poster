@@ -12,6 +12,8 @@
 %\usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{algpseudocode}
+\usepackage{tablefootnote}
+\usepackage{mdwlist}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -71,13 +73,13 @@
 \begin_body
 
 \begin_layout Title
-Solving weighted bipartite assignment problem (with contextualizations)
+Solving weighted bipartite matching problem (with contextualizations)
 \end_layout
 
 \begin_layout Paragraph
 
 \series bold
-Min-cost bipartite assignment:
+Min-cost bipartite matching:
 \series default
  
 \end_layout
@@ -87,13 +89,17 @@ given N jobs and M people and a
 \begin_inset Formula $NxM$
 \end_inset
 
- matrix of costs of perform these jobs.
+ matrix of costs of performing these jobs.
  Each job has to be assigned to 
 \emph on
 one
 \emph default
  of M people, while one person can perform maximum one job.
- Assume M<=N (or matrix can be rotated).
+ Assume 
+\begin_inset Formula $M\leqslant N$
+\end_inset
+
+ (or matrix can be rotated).
  Another interpretation can be assigning each of 
 \begin_inset Formula $N$
 \end_inset
@@ -103,10 +109,35 @@ one
 \end_inset
 
  tags available (and we have a likelihood matrix).
- This well-known problem is efficiently solved by Munkres/Hungarian algorithm
- in 
-\size footnotesize
+ This can be efficiently solved by a well-known Munkres
+\begin_inset Foot
+status open
 
+\begin_layout Plain Layout
+
+\size footnotesize
+Munkres algorithm transforms the problem into 
+\begin_inset Formula $N$
+\end_inset
+
+ smaller ones: maintaining the 
+\begin_inset Quotes eld
+\end_inset
+
+dual
+\begin_inset Quotes erd
+\end_inset
+
+ problem to restrict the currently allowed matches (edges) to be cheap enough,
+ it solves multiple unweighted bipartite assignments: starting with an empty
+ matching, find an augmenting path to increase the size of matching - new
+ edges are selected or existing deselected; if no augmenting path exist,
+ loosen the constraint on weights.
+\end_layout
+
+\end_inset
+
+ algorithm in 
 \begin_inset Formula $\Theta(N^{2}M)$
 \end_inset
 
@@ -147,10 +178,10 @@ Comparison of existing approaches
 
 \size small
 Notation: N keywords; M is total number of possible tags; 
-\begin_inset Formula $\bar{M}$
+\begin_inset Formula $\widetilde{M}$
 \end_inset
 
-is average # of possible tags
+ is the average # of possible tags
 \end_layout
 
 \begin_layout Standard
@@ -164,8 +195,8 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="3">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="37text%">
-<column alignment="center" valignment="top" width="30text%">
+<column alignment="left" valignment="top" width="42text%">
+<column alignment="center" valignment="top" width="26text%">
 <column alignment="center" valignment="top" width="30text%">
 <row>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
@@ -240,9 +271,12 @@ optimal answers
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
-slow, 
-\begin_inset Formula $O(\bar{M}^{N})$
+slow
+\series default
+, 
+\begin_inset Formula $O(\widetilde{M}^{N})$
 \end_inset
 
 
@@ -257,10 +291,10 @@ slow,
 
 \begin_layout Plain Layout
 
-\series bold
 \size footnotesize
+\emph on
 Munkres
-\series default
+\emph default
 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -268,13 +302,7 @@ key "munkres_cern_rect"
 
 \end_inset
 
- (rectangular version)
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-best solution to assignment problem in 
+ gives one best solution in 
 \begin_inset Formula $\Theta(N^{2}M)$
 \end_inset
 
@@ -318,10 +346,10 @@ only one best result
 
 \begin_layout Plain Layout
 
-\series bold
 \size footnotesize
+\emph on
 Keymantic
-\series default
+\emph default
 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -329,29 +357,29 @@ key "keymantic_kws_metadata_bergamaschi2011"
 
 \end_inset
 
-
+ - a modified Munkres
 \end_layout
 
 \begin_layout Plain Layout
-
-\size footnotesize
-\color red
-recursively evaluate all mappings
-\begin_inset Foot
-status collapsed
+recursively evaluate
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
-\color red
-solving multiple matchings with Munkres (modifying the matrices (not) to
- choose specific matches)
+
+\backslash
+tablefootnote{by solving multiple weighted matchings with Munkres (and modifying
+ the matrices to (not) to choose specific matches)}
 \end_layout
 
 \end_inset
 
- pruning on the cost so far.
- do contextualization inside Munkres
+ all mappings pruning on the cost.
+ 
+\size footnotesize
+\color red
+do contextualization inside Munkres
 \end_layout
 
 \end_inset
@@ -385,15 +413,15 @@ some of top-k answers
 \begin_layout Plain Layout
 
 \size footnotesize
-approximate - not all of top-k answers
+approximate - 
+\series bold
+no real top-k
 \end_layout
 
 \begin_layout Plain Layout
 
 \size footnotesize
-no guarantee all conceptualizations to be explored if not exploring ALL
- solution space (i.e.
- not real top-K)
+no guarantee of all contextualizations
 \end_layout
 
 \begin_layout Plain Layout
@@ -412,10 +440,10 @@ seems hard to prove 100% correctness
 
 \begin_layout Plain Layout
 
-\series bold
 \size footnotesize
+\emph on
 Murty
-\series default
+\emph default
 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -425,7 +453,10 @@ key "murty_ranked"
 
 
 \series bold
- + Munkres
+ + 
+\series default
+\emph on
+Munkres
 \end_layout
 
 \begin_layout Plain Layout
@@ -490,16 +521,20 @@ quite fast
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
+\begin_layout Itemize
 
 \size footnotesize
-no early pruning (an augmenting path may change much...)
+no early pruning (an augmenting path may change the matching a lot...)
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Itemize
 
+\series bold
 \size footnotesize
-no contextualization (or at least hard to get)
+no contextualization
+\series default
+ (or hard to prove similar method as in Keymantic, but provides guaranteed
+ top-k with limited contextualization)
 \end_layout
 
 \end_inset
@@ -511,10 +546,10 @@ no contextualization (or at least hard to get)
 
 \begin_layout Plain Layout
 
-\series bold
 \size footnotesize
+\emph on
 HMM
-\series default
+\emph default
 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -524,8 +559,11 @@ key "bergamaschi2011hidden"
 
 
 \series bold
- + List Viterbi
+ + 
 \series default
+\emph on
+List Viterbi
+\emph default
 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -567,7 +605,10 @@ can start with estimated HMM params: transition probs from contextualizations,
 \begin_layout Plain Layout
 
 \size footnotesize
-optimal top-k results
+\emph on
+top-k optimal
+\emph default
+ solutions
 \end_layout
 
 \begin_layout Plain Layout
@@ -597,6 +638,7 @@ no pruning
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 same tag may get selected multiple times
 \end_layout
@@ -610,48 +652,61 @@ same tag may get selected multiple times
 
 \begin_layout Plain Layout
 
-\series bold
 \size footnotesize
-Proposed by us 
+\emph on
+Murty + Dynamic Munkres
+\series bold
+\emph default
+ 
 \series default
-(if few dependencies)
+\emph on
+(proposed by us in cases of few dependencies)
 \end_layout
 
 \begin_layout Plain Layout
 
 \size footnotesize
 1) enumerate over all contextualization possibilities
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tablefootnote{exploring contextualizaions in depth-first order cost-matrix
+ modifications can be reused}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
 \size footnotesize
-2) use Murty to get top-k results over matrix with contextualizations applied
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-3) reuse older sub-solutions by using the 
-\begin_inset Quotes eld
-\end_inset
-
-Dynamic Munkres
-\begin_inset Quotes erd
-\end_inset
-
-
+2) use Murty's to get top-k results over contextualized cost-matrix reusing
+ older sub-solutions
 \begin_inset CommandInset citation
 LatexCommand cite
 key "munkres_dynamic"
 
 \end_inset
 
-, so each modified row/column costs 
+ costing only 
 \begin_inset Formula $\Theta(NM)$
 \end_inset
 
-; each modification can be reused if exploring them in depth-first fashion.
+ per modified 
+\begin_inset Quotes eld
+\end_inset
+
+line
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \end_inset
