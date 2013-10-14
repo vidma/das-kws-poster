@@ -89,7 +89,7 @@ Min-cost bipartite matching:
  
 \series default
 given N jobs and M people and a 
-\begin_inset Formula $NxM$
+\begin_inset Formula $n\, x\, m$
 \end_inset
 
  matrix of costs of performing these jobs.
@@ -97,22 +97,26 @@ given N jobs and M people and a
 \emph on
 one
 \emph default
- of M people, while one person can perform maximum one job.
+ of 
+\begin_inset Formula $m$
+\end_inset
+
+ people, while one person can perform maximum one job.
  Assume 
-\begin_inset Formula $M\leqslant N$
+\begin_inset Formula $m\leqslant n$
 \end_inset
 
  (or matrix can be rotated).
  Another interpretation can be assigning each of 
-\begin_inset Formula $N$
+\begin_inset Formula $n$
 \end_inset
 
  keywords a tag from 
-\begin_inset Formula $M$
+\begin_inset Formula $m$
 \end_inset
 
  tags available (and we have a likelihood matrix).
- This can be efficiently solved by a well-known Munkres
+ This can be efficiently solved by the well-known Hungarian/Munkres
 \begin_inset Foot
 status open
 
@@ -136,7 +140,7 @@ Munkres
 \end_inset
 
  algorithm in 
-\begin_inset Formula $\Theta(N^{2}M)$
+\begin_inset Formula $\Theta(n^{2}m)$
 \end_inset
 
 .
@@ -169,7 +173,7 @@ Contextualization
 \end_layout
 
 \begin_layout Subsection*
-Comparison of known approaches
+Known approaches and their combinations
 \end_layout
 
 \begin_layout Standard
@@ -179,15 +183,15 @@ Comparison of known approaches
 Notation:
 \emph default
  
-\begin_inset Formula $N$
+\begin_inset Formula $n$
 \end_inset
 
  keywords; 
-\begin_inset Formula $M$
+\begin_inset Formula $m$
 \end_inset
 
  is total number of possible tags; 
-\begin_inset Formula $\widetilde{M}$
+\begin_inset Formula $\widetilde{m}$
 \end_inset
 
  is the average # of possible tags; 
@@ -291,7 +295,7 @@ optimal answers
 slow
 \series default
 , 
-\begin_inset Formula $O(\widetilde{M}^{N})$
+\begin_inset Formula $O(\widetilde{m}^{n})$
 \end_inset
 
 
@@ -318,7 +322,7 @@ key "munkres_cern_rect"
 \end_inset
 
  gives one best solution in 
-\begin_inset Formula $\Theta(N^{2}M)$
+\begin_inset Formula $\Theta(n^{2}m)$
 \end_inset
 
 .
@@ -375,7 +379,15 @@ key "keymantic_kws_metadata_bergamaschi2011"
 
 \end_inset
 
- - Munkres modified for contextualizations
+ - Munkres modified for contextualizations, 
+\begin_inset Formula $\Theta(n^{3}m^{2})$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -389,8 +401,8 @@ status open
 
 
 \backslash
-tablefootnote{by solving multiple weighted matchings with Munkres (and modifying
- the matrices to (not) to choose specific matches)}
+tablefootnote{recursively solve multiple weighted matchings with Munkres
+ (modifying the matrices to force or prevent specific matches)}
 \end_layout
 
 \end_inset
@@ -485,7 +497,15 @@ key "murty_ranked"
 \emph on
 Munkres - 
 \emph default
-top-k matchings
+top-k matchings in 
+\begin_inset Formula $\Theta(n^{3}m)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -509,7 +529,7 @@ key "murty_optimizing"
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 : ordering sub-assignments to solve smaller or more likely first...
@@ -614,7 +634,11 @@ key "list_viterbi_1994"
 
 \end_inset
 
- (slightly different model)
+ 
+\begin_inset Newline newline
+\end_inset
+
+
 \series bold
  
 \series default
@@ -705,11 +729,20 @@ a tag may get selected many times
 \size footnotesize
 \emph on
 Murty + Dynamic Munkres
+\series bold
 \emph default
  
-\series bold
+\series default
 \emph on
-(good if few dependencies)
+on contextualized cost-matrix
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -744,7 +777,7 @@ key "munkres_dynamic"
 \end_inset
 
  costing only 
-\begin_inset Formula $\Theta(NM)$
+\begin_inset Formula $\Theta(nm)$
 \end_inset
 
  per modified 
@@ -780,7 +813,9 @@ top-k optimal results
 \series bold
 fast
 \series default
- if # contextualizations is small
+ 
+\series bold
+if # dependencies is small
 \end_layout
 
 \end_inset
